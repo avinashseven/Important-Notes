@@ -1,0 +1,630 @@
+									OOP(object oriented programming)
+
+programming based on the concept of "objects",instead of just functions and procedures!
+
+
+-------------------------------------------------------------------------------------------------------------------------------	
+											encapsulation: 
+
+here, each object is private, inside a class. Other objects don’t have direct access to it but, they can call only public functions(methods). every object manages itself by its methods and no other class can touch it unless allowed. 
+If you want to communicate with other objects, you should use the public methods but, you can’t change its state.
+It is binding methods and variables together. it provides data hiding. it helps in controlling the access using access modifiers.
+
+ENCAPSULATION AND ABSTRACTION can help us in develop and maintain a huge codebase.
+
+-------------------------------------------------------------------------------------------------------------------------------
+											abstraction
+
+Applying abstraction means that each object should only expose a high-level mechanism and hide internal implementations.
+it is an natural extension of encapsulation.
+
+EXAMPLE -> a coffee machine makes lot of noises under the hood. But, all you have to do is put in coffee and press a button without knowing how it works.
+           Cell phones are complex. But using them is simple.
+a software update rarely affect the abstraction you use.
+
+-------------------------------------------------------------------------------------------------------------------------------
+												inheritance
+
+Objects are often very similar while writing a code. They share common logic, But they’re not entirely the same!! 
+by using inheritance, we can reuse the common logic and seperate unique logic into a separate class.
+The child class reuses all fields and methods of the parent class (the common part) and can implement its own (unique part).
+-------------------------------------------------------------------------------------------------------------------------------
+												Polymorphism(used in many forms)
+
+
+
+------------------------------------------------------------------------------------------------------------------------------- 
+								FINAL(for VARIABLEs)
+
+          Final means that you can’t change the object’s reference point to another reference or 
+another object, but you can still change its state (using setter methods e.g) or using append functions. 
+final modifier is applicable for variable but not for objects.
+--------------------------------------------------------------------------------------------------------------------------------
+							Immutable(for OBJECTs, its Thread safe) 
+
+			The object’s actual value can’t be changed, but you can change its reference to another one.
+immutability applicable for an object, classes(if final, no setters, private fields) but not for variables.
+Advantages of immutable?
+  It decreases the overhead by garbage collection and it protect from code corrupting. 
+We should prefer Classes should be immutable unless there's a very good reason to make them mutable.
+If a class cannot be made immutable, we can limit its mutability as much as possible
+--------------------------------------------------------------------------------------------------------------------------------
+							shallow and deep copy which to be prefered?
+
+    When we create a new object that has an exact copy of the values in the original object. If any of the 
+fields of the object are references to other objects, just the reference addresses are copied i.e., 
+only the memory address is copied.
+    A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. 
+A deep copy occurs when an object is copied along with the objects to which it refers.
+-------------------------------------------------------------------------------------------------------------
+                   ****************JAVA 8 FEAUTURES**************
+
+"MUTABILITY" java 8 feauturs are implemented in an immutable fashion 
+
+"STREAMS" (you can process data in a declarative way similar to SQL statements)
+Stream(), ParallelStream() -> Java is default sequential unless explicitly mentioned as parallel
+StreamAPI's(used for Operations on Collections)
+
+LAMBDA EXPRESSIONS(Optionals, has body and parameter list)EX- MathOperation multiplication = (int a, int b) -> { return a * b; } )
+
+"METHOD REFERENCES" which help to point to methods by their names. 
+ symbol - two semi colons :: (ex -> names.forEach(System.out::println)for printing all names in different lines)
+
+"FUNCTIONAL INTERFACES" (EX-> eval(list, n-> n > 3 ); //printing no greater than 3)
+
+"Parallel Opearions" (sorting, filtering and mapping)
+
+"DEFAULT METHODS" (List/Collection interface can have a default implementation of FOREACH method, 
+but, the class implementing these interfaces need not implement the same.)
+
+"OPTIONAL" has not-null objects, handle values as ‘available’ or ‘not available’ instead of checking null values!
+EX-> static <T> Optional<T> of(T value) -> it returns an Optional with the specified present non-null value.
+
+"NASHORN" (we use jjs tool, to execute javascript codes at console), calling js from java using scriptEngineManager
+EX -> jjs> print("Hello, World!")
+
+"NEW (simple)date-time API" using java.time for handling timezones, poor design like 0/1/1900, thread safe .
+	  
+-------------------------------------------------------------------------------------------------------------------
+										API
+
+APIs allow us to build programs that can run with a Web server
+
+-------------------------------------------------------------------------------------------------------------------
+								abstract class vs interface ?
+
+Abstraction and Interface both of them are used for abstraction(shows only useful features & hides the internal implementation)
+An abstract class(uses extends) used to create functionality that child classes can implement or override. 
+
+An interface(uses implements) has definition or signature of functionality but, cannot implement it. 
+A class can extend only one abstract class but,it can take advantage of multiple interfaces.
+
+
+====================================================================================================================
+
+
+Why we use public in Interface ?
+
+advantages of Interface and abstract?
+
+===========================================================================================================================
+
+Abstract:
+
+difference between abstract and concrete method?
+
+compiler differetiate abstract and concrete method ?
+
+using the keyword abstract.
+
+======================================================================================================================
+Interface :
+
+in inheritance by default all methods are abstract.
+
+we cannot have concrete methods.
+
+we cannot create objects for interface.
+
+they both are implementing abstract principles.
+
+We can create instance of class implementing interface but not the instance of a particular interface.
+
+difference between composition and aggregration ?
+
+can we overload and override method? 
+------------------------------------------------------------------------------------------------------------------------------
+													Applets
+
+Applet is a Java program that can be embedded into a web page. It runs inside the web browser and works at client side. Applet is embedded in a HTML page using the APPLET or OBJECT tag and hosted on a web server.
+Applets are used to make the web site more dynamic and entertaining
+When an applet begins, the following methods are called, in this sequence:
+1. init( )
+2. start( )
+3. paint( )
+destroy()(remove completely from memory, only after free up any resources attached to the applet)
+------------------------------------------------------------------------------------------------------------------------------
+													UpCasting
+
+Upcasting is casting a subtype to a supertype, upward to the inheritance tree. Generally, upcasting is not necessary. However, we need upcasting when we want to write general code that deals with only the supertype.
+
+Downcasting is casting to a subtype, downward to the inheritance tree. Downcasting can fail if the actual object type is not the target object type. This will throw a ClassCastException because the actual object type is not the same.
+------------------------------------------------------------------------------------------------------------------------------
+											Servlet(pacckage ->javax.servlet )
+Java Servlet is a way to generate dynamic web pages.
+Servlet is a small program which handles complex requests obtained from a web or application server.
+once started, it stays in memory and used for multiple requests.
+
+Clients send the request to the web server -> Web server receives the request -> Web server passes the request to the corresponding servlet -> servlet processes the request and generate the response(output) -> servlet send the response back to the web server -> Web server sends the response back to the client and he can see it on screen.
+---------------------------------------------------------------------------------------------------------------------------------
+												ODBC(open db connection)
+
+With ODBC, we can access data from any application, regardless of any DBMS. It's done by inserting a middle layer called "DATABASE DRIVER" between an application and the DBMS. 
+ DATABASE DRIVER translate the application's data queries into commands that DBMS understands.The application must be capable of issuing ODBC commands and the DBMS must be capable of responding to them.
+
+---------------------------------------------------------------------------------------------------------------------------------
+											JDBC(Java Database Connectivity)
+
+JDBC allows Java programs to interact with any SQL based database and execute SQL statements. It has a single database application that can run on different platforms and interact with different DBMSs.
+JDBC is similar to ODBC, but is designed specifically for Java programs, whereas ODBC is language-independent.
+----------------------------------------------------------------------------------------------------------------------------------
+										       JSP
+
+Java Server Page (JSP) is a server-side technology(extension to the Java servlet)
+separates the page logic from the actual design and display of the page.
+JSP is translated into Java servlet before running, and processes HTTP requests to generate responses like servlets.
+JSPs are fully interoperable with servlets. You can include output from a servlet or forward the output to a servlet, and a servlet can include output from a JSP or forward output to a JSP.
+
+----------------------------------------------------------------------------------------------------------------------------------
+HTTP(Hypertext Transfer Protocol)
+
+----------------------------------------------------------------------------------------------------------------------------------
+													JSON
+JSON (JavaScript Object Notation). It’s a text-based format shows structured data based on JavaScript object. 
+It is used for transmitting data in web applications. It is highly recommended to transmit data between a server and web application.
+
+To convert a Java object into JSON, the we use: -> GSON & JACKSON API
+1. Add jar files of Jackson
+2. Create a POJO(which convert into JSON)
+3. Create a Java class (Convert the object into JSON using ObjectMapper class of JacksonAPI)
+4. Execute. 
+
+=======================================================================================================================
+												Serialization
+
+Serialization is the process of converting an object into a stream of bytes to store the object or transmit it to memory, a database, or a file. Its main purpose is to save the state of an object in order to be able to recreate it when needed. The reverse process is called deserialization.
+											serialize vs marshall
+When you serialize an object, only the member data within that object is written to the byte stream; not the code that actually implements the object.
+
+Term Marshalling is used when we talk about passing Object to remote objects(RMI). It's a process of converting the data or the objects inbto a byte-stream, and "unmarshalling" is the reverse process of converting the byte-stream beack to their original data or object. The conversion is achieved through "serialization".
+---------------------------------------------------------------------------------------------------------------------------------
+										Jackson API
+Jackson is a very popular and efficient java based library to serialize or map java objects to JSON and vice versa.3ways-
+-> Data Binding* (using annotations) [object - LinkedHashMap<String,Object> , array - ArrayList<Object> ,string - String]
+-> Tree Model (tree representation of JSON using objectmapper)
+-> Streaming API(JsonParser reads the data and JsonGenerator writes the data)		
+
+				ObjectMapper
+ObjectMapper is the main class of Jackson library. It provides functionality for reading and writing JSON from POJOs or JSON Tree Model (JsonNode). It supports polymorphism and Object identity. It act as a factory for more advanced ObjectReader and ObjectWriter classes.
+============================================================================================================================
+									
+									Request Dispatcher
+									
+Request Dispatcher is an interface defines an object which can dispatch the request to any resources on the server(it may be html, servlet or jsp).
+Two Types -> forward method(response from another servlet)
+-----------> Include method(response from same servlet but it uses the response of another connected servlet)
+
+-------------------------------------------------------------------------------------------------------------------
+
+CLIENT is an application that runs on a personal computer or workstation which depends on a server for performing operations.
+
+-------------------------------------------------------------------------------------------------------------------
+									HTML(HyperText Markup Language)
+
+HTML is used to create documents on the World Wide Web.
+It defines the structure and layout of a Web document by using variety of tags and attributes
+There are hundreds of tags used to format and layout the information on a Web page.
+major changes in HTML5 is the addressing Web applications, functions for embedding graphics, audio, video, and interactive documents.
+ new tags like < article >, <nav>, <source>, 
+-------------------------------------------------------------------------------------------------------------------
+                                            	 REST
+
+communication between client and server.^Services are using URI (Unified Resource Identifier) over HTTP protocol using HTTP method
+URI is similar to URL of a webpage, if you want to call a webservice, you can use a URI and call the service using HTTP request.
+No complex envelopes and protocols, services work with Resources instead of operations.
+REST has an architectural style which makes it processing free and flexible.
+REST is faster compared to SOAP.
+
+												SOAP
+SOAP is an older web server technology with a complex definition for the messages that are sent back and forth. SOAP allows only XML data format. These messages are socalled ‘envelopes’ with additional information.
+identify the Service and the Operations like GetCustomer, SaveCustomer(), UpdateCustomer()
+because the operations are named by the developers. So anyone can name the operations differently. Because of this, the consumer / client needs to know the service contract completely if they need to work with that service. Also, they need to know which operation is doing what kind of activity.
+
+								what is restless and resfull services?
+
+I had to smile when you mentioned “restless” but I understand what you mean. Not many people talk about services being restless. They generally call them SOAP or just services. Restless is basically any service that doesn’t follow the REST protocol
+The main difference ins basically that REST is meant to be used with the HTTP protocols and thus basically uses web servers for the server side. Other services can use HTTP but can also use other transport layers instead. (SOAP can use SMTP, for example, which is an email protocol!)
+
+-------------------------------------------------------------------------------------------------------------------------------
+												Synchronization
+
+Synchronization is the capability to control the access of multiple threads to shared resources. synchronized keyword in java provides locking which ensures mutual exclusive access of shared resource and prevent data race.
+
+---------------------------------------------------------------------------------------------------------------------------------
+											Dockers
+
+Docker is a basic tool, like (git VCS) for app's operating system. It uses btrfs (a copy-on-write filesystem) to keep track of filesystem. has a central repository of disk images (upload and download images) that allow you to easily run different operating systems.
+The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
+In the case of Linux and non-Hyper-V containers, the Host OS shares its kernel with running Docker containers. For Hyper-V each container has its own Hyper-V kernel
+Docker images can be pushed to a repository and can be pulled down to any other host to run containers from that image.
+when we want to distribute/collaborate on your app's operating system with a team We use it 
+Docker is basically a container engine which uses the Linux Kernel features like namespaces and control groups to create containers on top of an operating system and automates application deployment on the container 
+Docker has an workflow for moving application from developers laptop, test environment to production
+
+Dockers have docker containers, images, registries, docker client.
+image is a file used to execute code in a Docker container. An image is built from the instructions
+---------------------------------------------------------------------------------------------------------------------------------
+						difference between docker container and Virtual Machine?
+Docker is container based technology, Virtual Machine on the other hand, is not!
+In Docker, the containers share the host OS kernel, VM environment, shares hardware resource from the host.
+With a container environment, multiple workloads can run with single OS.In Virtual Machine environment, each workload needs a complete OS.
+
+-------------------------------------------------------------------------------------------------------------------------------
+									Wrapper Classes in Java
+									
+A Wrapper class is a class contains a primitive data types. They convert primitive data types into objects. When we create an object to a wrapper class, it contains a field and in this field, we can store a primitive data types. 
+
+============================================================================================================================
+										
+access modifiers:    public, private, protected, public.
+
+differnce between default and protected ?
+
+what is the use of getter and setter ?
+
+by making variable  private and exposing using public method. to access the variable inside the class we use getter and setter methods.
+
+in real world to access private data
+
+we use object.get() but not object.x where x is a property or varaible.
+===========================================================================================================================
+
+What is younger and older generations in GC?
+
+Generic Programming need importance
+
+
+====================================================================================================================
+
+Difference between overloading and overriding?
+
+what is static binding, late binding,early binding, dynamic method dispatch,
+
+what is compile and run time polymorphism?
+
+can we overload or overide static method?
+
+**************what is differnce between local,static, instance or global variables?
+*********************what are different types of classes inner, member inner,etc?
+*******************difference between finally, finalize and finally?
+****************difference between string, string buffer, and string builder when we need to go for which?
+how does memory management achieved with string buffer and builder?
+==============================================================================================================================
+collections:
+db questions?
+what are different kinds of partion?
+*************difference between view and volatile?
+**********difference between trigger and function?
+**********difference between procedure and stored procedure?
+what is query optimization?
+how do you find cost of a query?
+**********what is hashmap,hashing,hashfunction?
+***************difference between hashmap,treemap,hashtable?
+***********difference between array,arraylist and linkedlist?
+************difference between comparator and comparable?
+difference betweenc collection an collections?
+How does jvm work and gc work?
+generic programming use and advantage?
+what are differeent kinds of classes?
+what are different access modifiers?
+**************what is rest end ponts and methods?
+**************what is difference between transient,detach and persistent?
+*****************what is difference between session factory and session?
+*************what is cascading and types of mapping?
+************what is multithreading ,threads, threadpool?
+******************advantage of dependency injection and inversion of control brief overview?
+how does string and string buffer in allocation of memory?
+difference between final, finally, and finalize.
+why we need them?
+what is mockito and junit?
+-------------------------------------------------------------------------------------------------------------------------
+**********how do we consume a api service?
+**********how do we create a resource and mapping to it?
+-------------------------------------------------------------------------------------------------------------------------
+												OAUTH
+												
+Access granting protocol. Data access without sharing username and passwors for every application.
+Federated Authentication(App 2 App)
+Delegated Authentication(App 2 other app's selected access)
+-------------------------------------------------------------------------------------------------------------------------
+										Enterprise JavaBeans (EJB)
+Has the business logic of the model.
+EJB systems are written in Java, they are platform independent. Being object oriented(POJO), they can implement into existed systems probably with recompiling and configuration.
+An EJB server provides functions like threading, concurrency, security and memory management. 
+
+A transaction can be managed by either the container(default) or the bean.
+In Container-managed transactions (CMT), "EJB" takes care of starting and commiting the transactions whenever needed. All session and message-driven beans may use CMT.
+
+In Bean-managed transactions (BMT), the "bean-provider" take care of the transactions(start and commit). Session and message-driven beans may use BMT.
+
+-------------------------------------------------------------------------------------------------------------------------
+											Spring Bean Scope
+The core of spring framework is it’s bean factory and mechanism to create and manage beans inside the Spring container.
+The beans in spring container can be created in five scopes i.e. 
+
+1.SINGLETON (default) – Creates only one bean instance for the spring container. While using we have to check for shared instances  to avoid data inconsistency issues.
+
+@Bean
+@Scope(value="singleton/ prototype/ session etc")// configuring type of bean
+
+2.PROTOTYPE –  Created by request from spring container.
+
+3.REQUEST(web applications) – Similar to prototype it's created by HTTP request.
+
+4.SESSION – A new bean will be created for each HTTP session by the container.
+
+5.GLOBAL SESSION SCOPE– Creates global session beans for Portlet applications.
+-------------------------------------------------------------------------------------------------------------------------
+											Persistant Class
+
+Java classes whose objects or instances are stored in database tables are called persistent classes in Hibernate. 
+Hibernate works best if these classes follow Plain Old Java Object (POJO) programming model.
+
+The concept of Hibernate is to take the values from Java class attributes and persist them into a database table. A mapping document helps Hibernate in determining how to pull the values from the classes and map them with table and associated fields.
+All Java classes that will be persisted need a default constructor.
+
+All classes should contain an ID in order to allow easy identification of your objects within Hibernate and the database. This property maps to the primary key column of a database table.
+
+All attributes that will be persisted should be declared private and have getXXX and setXXX methods defined in the JavaBean style.
+
+A central feature of Hibernate, proxies, depends upon the persistent class being either non-final, or the implementation of an interface that declares all public methods.
+
+All classes that do not extend or implement some specialized classes and interfaces required by the EJB framework.
+
+The POJO name is used to emphasize that a given object is an ordinary Java Object, not a special object, and in particular not an Enterprise JavaBean.
+================================================================================================================================
+												JPA(Java Persistance API)
+
+JPA, makes life easy for interaction with database instances. 
+It is a collection of classes and methods used to store data in database.
+It creates a mapping file(ORM.xml) between object models (Java program) and relational models (database program).
+It stores business entities(POJO) as entities and manage the entities with relationships(1-1, 1-many, Many-1).
+JPA INTERFACES -> Entity, EntityManaager, EntityManagerFactory, Persistance, Query
+
+(Eager fetch)Fetching the whole record using Primary Key
+(lazy fetch)fetches the record for the first time and stores it in cache memory for furthur use. Performance wise, lazy fetch is preferable.
+--------------------------------------------------------------------------------------------------------------------------------
+												Hibernate
+
+Spring Boot uses Hibernate(artist) as the default JPA(art) implementation.
+spring.jpa.hibernate.ddl-auto is used for database initialization.
+If you change the name or type of a field, or add another field to the model, then all these changes will be reflected in the mapped table as well.
+
+
+states of hiberate?
+generation strategies?
+Mappings basics:
+architecture of Hibernate?
+primary cache and secondary cache?
+session factory and session ?
+statement and prepared statement?
+difference execute() executeupdate();
+=======================================================================================================================
+
+stack memory is used to store local variables and function calls
+heap memory is used to store objects in Java
+Heap memory is used by all the parts of the application whereas stack memory is used only by one thread of execution. 
+Whenever an object is created, it's always stored in the Heap space and stack memory contains the reference to it.
+Garbage Collection runs on the heap memory to free the memory used by objects that doesn’t have any reference.
+---------------------------------------------------------------------------------------------------------------------------------
+What’s the difference between a stack and a queue?
+	Both of them are linear data structures used for operations like store & delete but, their approach is diffferent. 
+	Stack uses LIFO(Last In First Out) and Queue uses FIFO(First In First Out)
+======================================================================================================================
+statement and prepared statement?
+diff b/w import java.sql.date and java.date.?
+---------------------------------------------------------------------------------------------------------------------------------
+					difference between SQL (such as SQL Server) and NoSQL (such as Mongo DB)?
+	
+MySQL(RDBMS) database can replicate across multiple nodes. We use MySQL for multiple row transactions and applications which run on legacy systems
+MongoDB(distributed) is a good choice for databases having no specific schema definitions or if it keeps changing like mobile apps & real-time analytics.
+The main difference is the way of storing the data(table-based VS key-value pair, document or graph).
+We can scale in load on single server(MySQL) on other hand we can add servers(NoSQL).
+---------------------------------------------------------------------------------------------------------------
+Please explain the difference between an inner join and an outer join?
+		Inner Join returns all rows even for one match in two tables(X intersection Y).
+		
+		Outer Join has -> left outer join, right outer join and full outer join.  
+		   Left Outer Join gives rows in A and common rows in B 
+		   Right Outer Join gives rows in B and common rows in A
+		   Full outer Join returns all rows in A and B (A union B).
+---------------------------------------------------------------------------------------------------------------
+use of auto increment and sequence ?
+primary and foreign key?
+perisitence and volatile?
+
+---------------------------------------------------------------------------------------------------------------
+
+A staging(pre-production) environment is a nearly exact replica of a production environment for software testing. Staging environments are made to test codes, builds, and updates to ensure quality under a production-like environment before application deployment
+Smoke tests check for service functionalities
+User acceptance testing (UAT) are performed from the end user point of view.
+
+======================================================================================================================
+ 												Spring:
+
+ it provides support to various frameworks such as Struts, Hibernate, Tapestry, EJB, JSF etc
+
+
+what is spring advantages?
+***********desing patterns types and most used singelton and factory patters?
+				               
+				                        Dependency injection(DI)
+Dependency Injection is the process where Spring framework search for the beans and identifies the dependencies, and creates bean instances by autowiring. It helps in removing hardcode with a flexibility of changing the code at compiling or run-time.
+In OOP, object reference plays a key role. DI provides it and we don't even need not to manage at application level. 
+Spring and Google Guice are best examples for dependency Injection.
+
+									Inversion of Control (IOC). 
+In Spring(Loose Coupling) , we use @Autowired annotation over the dependency class then Spring takes the control of creating the instance and injecting the dependencies.
+-> Find Beans  -> Identify their dependencies and wire the dependencies  -> Manage Lifecycle of the Bean (create,process, destruction)
+
+										Application Context
+Is an advanced version of IOC Container provides all the functionalities of Bean Factory like AOP, Internationalization capabilities, web application context (request, session, etc).
+Created by using -> ClassPathXmlApplicationContext(XML Files) -> @Configuration
+
+what is modulatiy?
+what are hooks post contruct and post destruct ?
+what are ways we can achieve dependency injection constrcutor,setter and getters and properties?
+what is most followed dependency injection ? constructor? why?
+how can we achieve loose coupling using spring ?
+Spring JDBC and SPring MVC?
+what is Front controller, controller and architecture of Spring MVC basics ?
+****Difference between imperative and declrative programming ?
+what is component ?
+what is primary ?
+what is qualifer?
+what is model ?
+@Request path ?
+
+
+*****************difference between component,repository,controller or relation among them?
+------------------------------------------------------------------------------------------------------------------------------
+what are ways to inject dependencies?
+which one we need to use ?
+mostly we are going to use setter and getter ?
+@value annotations ?
+is the best approach over hardcoding the values in the application?
+======================================================================================================================
+										    @nnotations
+
+@Autowiring(DI injection) injects the object dependency implicitly. It uses setter, constructor or field injection.
+@Entity is used to mark the class as a persistent Java class in DB
+@Repository tells Spring to bootstrap about repository during component scan.
+@Configuration has methods to instantiate and configure dependencies.
+@Bean works with @Configuration to create Spring beans. 
+@ComponentScan(used with configuration) is also used to specify base packages using basePackageClasses 
+@SpringBootApplication do a component scan only for its sub-packages!
+@Get,Put, Post, Delete Mapping annotations are for mapping HTTP CRUD Operations.
+@RestController is a convenience annotation that combines @Controller(every method returns a object instead of a view) and @ResponseBody(sends HTML as response) 
+@MappedSuperclass in hibernate supports entities to keep basic properties in a super class. The super class annotated by @MappedSuperclass will not behave as independent entity. It will not be associated with any database table. If we want to change the column name different from super class, we need to use @AttributeOverride.
+=======================================================================================================================
+									     	springboot:
+
+Spring Boot uses Hibernate as the default JPA implementation.
+spring.jpa.hibernate.ddl-auto is used for database initialization.
+
+@SpringBootApplication == @ComponentScan, @Configuration, @EnableAutoConfiguration
+
+how can we use other server in springboot by avoiding default tomcat server?
+
+=======================================================================================================================
+										Microservices
+Microservices can break single service into multiple component services, which are faster to develop(independently), and much easier to understand and maintain.
+Work very well with containers, such as Docker for continuous delivery.
+Have services bounded context in terms of functionality.
+Two microservices cannot share common tables.
+Microservices are self contained,independent and bounded context.
+We cannot deploy two microservices in same container ex: we cannot put two same microservices in the same container.
+
+Note: App dynamics is tool provided on service instance and monitors how many end points are hit per sec.
+How many transactions per sec. If transactions are going beyond certain threshold value we are going to advice go for another node.
+=======================================================================================================================
+Microservices are again related to Cloud Native application.
+microservices are a way of building an SOA.
+Rest service  vs microservice:
+*************coexistence is very important concept********
+********websphere has the applications developed for legacy applications********
+**********12factorapp.net******************
+Rest service follows rest architecture:
+These are not self contained and are not restricted to some databse tablses
+rest are deployed in form a war and deployed in a container.
+war is a monolithic application.
+
+=====================================================================================================================
+										Design pattern(aka dp)
+Design pattern(aka dp) used to get a solution for the problem while developing a software(as a software developer view). 
+It shows the relationships and interactions between classes or objects also speed up the development. It’s not mandatory to use dp always in your project 
+they are meant only for solving problems. Whenever there is a need, you have to implement the suitable pattern to avoid such problems in future. 
+To find out which pattern to use, you should have a clear picture about it and it’s purpose.
+=====================================================================================================================
+										Behavior Driven Development(simply BDD)
+
+Behavior Driven Development(simply BDD) is a customer-focused process. 
+It is based on the understanding of the system or module behavior but in the terms of business/client.
+In BDD, we share our expected behaviors across all members of the team.
+understand these needs from the start and testing external business behaviors 
+that the entire team cares about—that is a great way to ensure a quality project.
+=======================================================================================================================
+											coding:
+=======================================================================================================================
+				
+fibonacci series upto n terms or upto certain numbers;
+lcm,gcd,factors,prime numbers,factorial.
+armystrong,pallindrome,reverse a string, integer, digit,
+ascending and desending order.
+largest and smallest number.
+Swapping with and without third variable.
+Collections PRograms:
+Linked list, arrays , arraylist.
+sorting:
+Bubble,quick sort merge sort,
+Searching algorithms:
+Binary search.
+
+====================================================================================================================
+						Programs or Arrays, Arraylist, LinkedList, HashMap, Searching.
+======================================================================================================================
+Array Programs:
+find largest and smallest number in a array?
+find largest number in a array?
+find smallest number in a array?
+sort the elements in a ascending and descending order?
+find duplicate element in array ? using linear or binary search?
+
+========================================================================================================================
+core java=======================================================================================================================
+***************************For JVM and GC
+follow this videos:
+architecture:
+https://www.youtube.com/watch?v=ZBJ0u9MaKtM
+garbage collection:
+https://www.youtube.com/watch?v=UnaNQgzw4zY
+-------------------------------------------------------------------------------------------------------------------------
+*****************what is meaning of public static void main(String[] args)?
+sol:   https://www.youtube.com/watch?v=by58arnoV4c
+
+
+understand spring boot,hibernate ,jpa,rest and how it works
+study interview questions about spring boot,hibernate,rest jpa,
+also interview questions about java ,collections
+-------------------------------------------------------------------------------------------------------------------------
+GIT COMMANDS
+								create a new repository on the command line
+git init
+git add README.md
+git commit -m "first commit" -> commenting
+git remote add origin https://github.com/avinashseven/ide.git -> URL
+git push -u origin master
+
+	 					push an existing repository from the command line
+git remote add origin https://github.com/avinashseven/ide.git -> URL
+git push -u origin master
+
+							Differenciation in two repo's ->
+git remote add -f b path/to/repo_b.git
+git remote update
+git diff master remotes/b/master
+git remote rm b
+
+-------------------------------------------------------------------------------------------------------------------------
+To chanhe server port number in intellij config VM option-> -Dserver.port=8085
+Kill a server with id-> taskkill /f /pid 5352
