@@ -9,16 +9,12 @@ Iterator.hasnext();   iterator.next();//to get the values in the List
 Java String to Class object - Class.forName()
 
 LinkedHashSet
-
-
-stack memory is used to store local variables and function, Variables stored in stacks are only visible to the owner.
-heap memory is used to store objects in Java, visible to all threads.
--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 										Implicit Variables
 int, double, char
 --------------------------------------------------------------------------------------------------------------------------
 
-						 	There are two ways to create a thread:
+						 	There are two ways to create a THREAD:
 
 1.By EXTENDING Thread class (provides constructors and methods to create and perform operations on a thread.Thread class extends Object class and implements Runnable interface)
 EX->
@@ -36,7 +32,7 @@ Output:thread is running
 2.By IMPLEMENTING Runnable interface (should be implemented by any class whose instances are intended to be executed by a thread. Runnable interface have only one method named run()
 EX->
 
-class Multi3 implements Runnable{  
+class Multi implements Runnable{  
 public void run(){  
 System.out.println("thread is running...");  
 }  
@@ -58,14 +54,16 @@ A piece of code is thread-safe if it only manipulates shared data structures in 
 all the basic collection classes - ArrayList, LinkedList, HashMap, HashSet, TreeMap, TreeSet, etc - all are not synchronized
 In fact, all collection classes (except Vector and Hashtable) in the java.util package are not thread-safe
 
--> Statelesss - maintaining the same state for the onject by returning at the same place
+how to make thread safe 
+
+-> Statelesss - maintaining the same state for the object by returning at the same place
 -> Synchronizing the objects
 -> Concurrent Collections - dividing the data into segments, multiple threads can access the multiple segments at the same time.
 -> Making object final
 -> Making the object private
 
 --------------------------------------------------------------------------------------------------------------------------
-														Collections
+                                           Collections
 
 List store the ordered collection of objects. It can have DUPLICATE values. List interface is implemented by the classes ArrayList, LinkedList, Vector, and Stack.
 
@@ -73,16 +71,13 @@ ArrayList uses a dynamic array to store the duplicate element of different data 
 
 LinkedList uses a double linked list internally to store the elements. It can store the duplicate elements. It maintains the insertion order and is not synchronized. In LinkedList, the manipulation is fast because no shifting is required.
 
-
 Hashmap stores the data in (Key, Value) pairs. To access a value it must know its key. Hashing is a technique of converting a large String to small String that represents the same String. A shorter value helps in indexing and faster searches. In a HashMap the key is an object, that contains hashCode() and "equals(Object)" methods (to check already inserted or not)
-
-Stack used to store & delete LIFO(Last In First Out) 
 
 Queue uses FIFO(First In First Out)
 
 Vector uses a dynamic array to store the data elements. It is similar to ArrayList. However, it is synchronized and contains many methods that are not the part of Collection framework.
 
-Stack last-in-first-out data structure, i.e., Stack. The stack contains all of the methods of Vector class and also provides its methods like boolean push(), boolean peek(), boolean push(object o).
+Stack used to store & delete LIFO(Last In First Out). push n pop methods.
 
 Set unordered set of elements which doesn't allow us to store the duplicate items. We can store at most one null value in Set. Set is implemented by HashSet, LinkedHashSet, and TreeSet.
 
@@ -92,22 +87,28 @@ Hashtable is synchronized. It is thread-safe and can be shared with many threads
 
 flatMap() produces a stream of new values
 map() it produces a single value
+
 								COLLLISION (only same indexes) different from replacing same value
 distribute the values
 Store in next bucket
 Create a linked list at the index.
--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
+Wrapper Classes in Java
+									
+A Wrapper class is a class contains a primitive data types. They convert primitive data types into objects. When we create an object to a wrapper class, it contains a field and in this field, we can store a primitive data types. 
+
+-------------------------------------------------------------------------------------------------------------------------
 												Static vs Final(Keywords)
 
 The static member can be accessed before the class object is created. It share among all the objects of a class. 
-Final keyword is used to declare, a constant variable, a method which can not be overridden and a class that can not be inherited
+Final keyword is used to declare, a constant variable, a method which cannot be overridden and a class that can not be inherited
 but you can still change its state (using setter methods e.g) or using append functions. 
 final modifier is applicable for variable but not for objects.
--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 Final class can't be inherited, final method can't be overridden and final variable value can't be changed. 
 Finally is used to place important code, it will be executed whether exception is handled or not. 
 Finalize is used to perform clean up processing just before object is garbage collected.
--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
  													Checked exceptions
  Checked exceptions are CHECKED at compile time. 
 
@@ -118,15 +119,30 @@ Throw keyword is used to throw an exception explicitly  -> throw new ArithmeticE
 
 
 ConcurrentModificationException - before finishing our iteration if we modify an element
--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
+JAVA - SOLID RULES
+DB  - ACID Properties
+												ACID Rules
+In order to maintain consistency in a database, before and after transaction, certain properties are followed. They r ACID prop.
+Atomicity(A) - By this, we mean that either the entire transaction takes place at once or doesn’t happen at all. There is no midway i.e. transactions do not occur partially. Each transaction is considered as one unit and either runs to completion or is not executed at all. Atomicity is also known as the ‘All or nothing rule’.
+It involves following two operations.
+—Abort: If a transaction aborts, changes made to database are not visible.
+—Commit: If a transaction commits, changes made are visible.
+
+Consistency(C) − This represents the consistency of the referential integrity of the database, unique primary keys in tables, etc.
+
+Isolation(I) − There may be many transaction processing with the same data set at the same time. Each transaction should be isolated from others to prevent data corruption.
+
+Durability (D) − Once a transaction has completed, the results of this transaction have to be made permanent and cannot be erased from the database due to system failure.
+--------------------------------------------------------------------------------------------------------------------------
   								        SOLID rules while writing a program
 
 Single Responsibility (class should have only one responsibility. Further, it should only have one reason to change)
 Open/Closed (Open for Extension, Closed for Modification)
-Liskov Substitution (if class A is subtype of class B,then we should replace B with A without creating anydisturbances in program)
+Liskov Substitution (if class A is subtype of class B,then we should replace B with A without creating any disturbances in program)
 Interface Segregation (large interfaces r split into smaller ones. Classes r concerned about methods that interest to them)
 Dependency Inversion (decoupling high-level modules depending on low-level modules. Now both will depend on abstractions)
--------------------------------------------------------------------------------------------------------------------------------	
+--------------------------------------------------------------------------------------------------------------------------
 									OOP(object oriented programming)
 
 programming based on the concept of "objects",instead of just functions and procedures!
@@ -135,17 +151,16 @@ programming based on the concept of "objects",instead of just functions and proc
 -> Aggreagation(spl assosiation relation where methods survive without eachother) 
 -> Composition(restrict form of aggregation, methods depend on each other, part-of relation, cannot exist without eachother)  
 -> Class/Object
--------------------------------------------------------------------------------------------------------------------------------
-											encapsulation 
+--------------------------------------------------------------------------------------------------------------------------
+											encapsulation (getter,setter)
 
-here, "each object is private, inside a class. Other objects don’t have direct access but, they can access public functions(methods) but cannot change them". 
-every object manages its methods and no other class can touch it (unless allowed). 
+"each object is private, inside a class. Other objects don’t have direct access but, they can access public functions(methods) but cannot change them". 
 [get(),set(), seperate code, methods and communicate via method calling] 
 It is binding methods and variables together. it provides data hiding. it helps in controlling the access using access modifiers.
 
 ENCAPSULATION AND ABSTRACTION can help us in develop and maintain a huge codebase.
--------------------------------------------------------------------------------------------------------------------------------
-											 abstraction
+--------------------------------------------------------------------------------------------------------------------------
+											 abstraction (only methods no logic)
 
 Applying abstraction means that each "object should only expose a high-level mechanism and hide internal implementations".
 it is an natural extension of encapsulation.
@@ -153,22 +168,24 @@ it is an natural extension of encapsulation.
 EXAMPLE -> a coffee machine makes lot of noises under the hood. But, all you have to do is put in coffee and press a button without knowing how it works.
            Cell phones are complex. But using them is simple.
 a software update rarely affect the abstraction you use.
--------------------------------------------------------------------------------------------------------------------------------
-												inheritance
+--------------------------------------------------------------------------------------------------------------------------
+												inheritance (parent child)
 
 Objects are often very similar while writing a code. They share common logic, But they’re not entirely the same!! 
 by using inheritance, we can reuse the common logic and seperate unique logic into a separate class.
 The "child class reuses all fields and methods of the parent class (the common part) and can implement its own" (unique part).
--------------------------------------------------------------------------------------------------------------------------------
-												Polymorphism(used in many forms)
+--------------------------------------------------------------------------------------------------------------------------
+												Polymorphism(over ride/load)
 
 Is a way to use class exactly like its parent without any confusion with mixing types. But each child class have its own methods.
 Parent class has bunch of methods. "child inherits parent class and implents it's own version of methods".
--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 													Overloading 
 Overloading occurs when two or more methods in one class have the same method name but different parameters.
+
+										Overriding(two logics differed by called object parent or child in diff classes)
 Overriding means having methods with the same method name and parameters but subclass changes superclass method logic.(not private, static or final methods)
--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 							              Immutable(for OBJECTs, its Thread safe) 
 
 			The "object’s value can’t be changed, but you can change its reference" to another one.
@@ -176,37 +193,41 @@ immutability applicable for an object, classes(if final, no setters, private fie
 Advantages of immutable?
   It decreases the overhead by garbage collection and it protect from code corrupting. 
 We should prefer Classes should be immutable unless there's a very good reason to make them mutable or try to limit its mutability as much as possible.
---------------------------------------------------------------------------------------------------------------------------------
-									garbage collection
-heap memory
-Stack mem 
+--------------------------------------------------------------------------------------------------------------------------
+									abstract class vs interface ?
 
-other threads in the application have to be stopped to allow the garbage collector thread to effectively do its work.
-parent object is set to null
-Cyclic dependencies without any live external reference
-We cannot force garbage collection. It will only trigger if JVM thinks it needs a garbage collection based on Java heap size.
+Abstraction class and Interface both of them are used for abstraction(shows only useful features & hides the internal implementation)
+
+An "abstract class(uses extends) used to create functionality that child classes can implement or override". 
+
+An interface(uses implements) "has definition or signature of functionality but, cannot implement it". 
+A class can extend only one abstract class but,it can take advantage of multiple interfaces.
+
+--------------------------------------------------------------------------------------------------------------------------
+									garbage collection
+We cannot force garbage collection. It will only trigger if JVM thinks it needs a garbage collection based on Java heap size. other threads in the application have to be stopped to allow the garbage collector thread to effectively do its work. parent object is set to null
+cleans Cyclic dependencies without any live external reference
 finalize() Finalize is used to perform clean up processing just before object is garbage collected.
 
---------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 							          shallow and deep copy which to be prefered?
 
 In shallow copy we create new objects that are exact copies of original object with reference address(i.e., memory address).
 
 In deep copy, it copies all fields, and makes copies of objects to which it refers(memory pointed) 
----------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
                               ****************JAVA 8 FEAUTURES**************
 
 "MUTABILITY" java 8 feauturs are implemented in an immutable fashion 
 
-StreamAPI's(used for Operations on Collections)
-"STREAMS" (you can process data in a declarative way similar to SQL statements)
-Stream(), ParallelStream() -> Java is default sequential unless explicitly mentioned as parallel
+Streams(used for Operations on Collections)
+intermediate   or terminal methods
 
 LAMBDA EXPRESSIONS(Optionals, has body and parameter list)EX- MathOperation multiplication = (int a, int b) -> { return a * b; } )
 ->used to represent the instance of a functional interface
 
 "METHOD REFERENCES" which help to point to methods by their names. 
- symbol - two semi colons :: (ex -> names.forEach(System.out::println)for printing all names in different lines)
+ symbol - two colons :: (ex -> names.forEach(System.out::println)for printing all names in different lines)
 
 "FUNCTIONAL INTERFACES" (EX-> eval(list, n-> n > 3); //printing no greater than 3). A functional interface is an interface that contains only one abstract method(one functionality to exhibit). EX -  Runnable, ActionListener, Comparable
 
@@ -227,194 +248,7 @@ EX -> jjs> print("Hello, World!")
 											Comparator vs Comparable
 Comparator interface compare(Object o1, Object o2) method need to be implemented that takes two Object argument, it should be implemented in such a way that it returns negative int if the first argument is less than the second one and returns zero if they are equal and positive int if the first argument is greater than the second one.
 
-Comparable interface has compareTo(T obj) method which is used by sorting methods. We should override this method in such a way that it returns a negative integer, zero, or a positive integer if “this” object is less than, equal to, or greater than the object passed as an argument.
--------------------------------------------------------------------------------------------------------------------
-								         abstract class vs interface ?
-
-Abstraction class and Interface both of them are used for abstraction(shows only useful features & hides the internal implementation)
-
-An "abstract class(uses extends) used to create functionality that child classes can implement or override". 
-
-An interface(uses implements) "has definition or signature of functionality but, cannot implement it". 
-A class can extend only one abstract class but,it can take advantage of multiple interfaces.
-
-------------------------------------------------------------------------------------------------------------------------------
-													UpCasting
-
-Upcasting is "casting a subtype to a supertype", upward to the inheritance tree. In general, we don't use upcasting unless if we want to write a code which deals only supertype.
-
-Downcasting is casting to a subtype, downward to the inheritance tree. Downcasting may fail if the actual object type is not the target object type. by throwing a ClassCastException.
-----------------------------------------------------------------------------------------------------------------------------------
-												ACID Rules
-In order to maintain consistency in a database, before and after transaction, certain properties are followed. They r ACID prop.
-Atomicity(A) - By this, we mean that either the entire transaction takes place at once or doesn’t happen at all. There is no midway i.e. transactions do not occur partially. Each transaction is considered as one unit and either runs to completion or is not executed at all. Atomicity is also known as the ‘All or nothing rule’.
-It involves following two operations.
-—Abort: If a transaction aborts, changes made to database are not visible.
-—Commit: If a transaction commits, changes made are visible.
-
-Consistency(C) − This represents the consistency of the referential integrity of the database, unique primary keys in tables, etc.
-
-Isolation(I) − There may be many transaction processing with the same data set at the same time. Each transaction should be isolated from others to prevent data corruption.
-
-Durability (D) − Once a transaction has completed, the results of this transaction have to be made permanent and cannot be erased from the database due to system failure.
-----------------------------------------------------------------------------------------------------------------------------------
-HTTP(Hypertext Transfer Protocol)
-
----------------------------------------------------------------------------------------------------------------------------------
-										            
-						 convert JSON to XML or XML to JSON?
-first convert from json,xml -> string, 
-convert line break -> create object-> convert into xml, json 
-Using the JsonConvert class
-// XmlDocument doc = JsonConvert.DeserializeXmlNode(json);
-================================================================================================================================
-												Serialization
-
-Serialization is the process of "converting an object into a stream of bytes to store in a database", or a file. Its main purpose is to save the state of an object in order to be able to recreate it when needed. The reverse process is called deserialization.
-											serialize vs marshall
-When you serialize an object, only the member data within that object is written to the byte stream; not the code that actually implements the object.
-
-Marshalling is a process to transfer data between the RMI (Remote Method Invocation is an API for creating applications, for communicating b/n applications using two objects stub and skeleton). 
-
-It's a process of converting the data or the objects into a byte-stream, and "unmarshalling" is the reverse process of converting the byte-stream beack to their original data or object using "serialization".
----------------------------------------------------------------------------------------------------------------------------------
-										        Jackson API
-Jackson is a very popular and efficient java based "library to serialize or map java objects to JSON and vice versa".
-achived in 3ways-
--> Data Binding* (using annotations) [object - LinkedHashMap<String,Object> , array - ArrayList<Object> ,string - String]
--> Tree Model (tree representation of JSON using objectmapper)
--> Streaming API(JsonParser reads the data and JsonGenerator writes the data)		
-
-									   ObjectMapper
-ObjectMapper is the main class of Jackson library. It provides functionality for reading and writing JSON from POJOs or JSON Tree Model (JsonNode). It supports polymorphism and Object identity. It act as a factory for more advanced ObjectReader and ObjectWriter classes.
-----------------------------------------------------------------------------------------------------------------------------------
-
-													JSON
-JSON (JavaScript Object Notation) is a text-based format shows structured data based on JavaScript object. 
-It's used for transmitting data in web applications ie., between a server and web application.
-
-To convert a Java object into JSON, the we use: -> GSON & JACKSON API
-1. Add jar files of Jackson
-2. Create a POJO(which convert into JSON)
-3. Create a Java class (Convert the object into JSON using ObjectMapper class of JacksonAPI)
-4. Execute. 
-performing operations.
--------------------------------------------------------------------------------------------------------------------
- API
-
-used to build programs that run on a Web server
-----------------------------------------------------------------------------------------------------------------------------------
- 											webservice
- application to application communication(request, response)
- platform independent
- communication over the network
-                                            	 REST API
-
-communication between client and server. Services are using URI (Unified Resource Identifier) using HTTP protocol.
-URI is similar to URL of a webpage, if you want to call a webservice, you can use a URI and call the service using HTTP request.
-No complex envelopes and protocols(unlike in soap), services work with Resources instead of operations.
-REST has an architectural style which makes it processing free and flexible.
-REST is faster compared to SOAP.
-
-												SOAP
-SOAP is an older web server technology with a complex definition for the messages that are sent back and forth. SOAP allows only XML data format. These messages are so called "Envelopes"(head, body) with additional information.
-identify the Service and the Operations like GetCustomer, SaveCustomer(), UpdateCustomer()
-because the operations are named by the developers. So anyone can name the operations differently. Because of this, the consumer / client needs to know the service contract completely if they need to work with that service. Also, they need to know which operation is doing what kind of activity.
-
-http://www.google.com/hi/there?qs1=you&qs2=tube
-query params
-
-{
-  qs1: 'you',
-  qs2: 'tube'
-}
-req params
-
-{
-  param1: 'there'
-}
-================================================================================================================================
-												JPA(Java Persistance API)
-
-JPA, makes life easy for interaction with database instances. 
-It is a collection of classes and methods used to store data in database.
-It creates a mapping file(ORM.xml) between object models (Java program) and relational models (database program).
-It stores business entities(POJO) as entities and manage the entities with relationships(1-1, 1-many, Many-1).
-JPA INTERFACES -> Entity, EntityManaager, EntityManagerFactory, Persistance, Query
-
-(Eager fetch)Fetching the whole record using Primary Key
-(lazy fetch)fetches the record for the first time and stores it in cache memory for furthur use. Performance wise, lazy fetch is preferable.
---------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
-
-			JWT (JSON web token)
-1.API authorizing
-2.data transfer[having all the details]
-
-api are secured with oauth2.0
-access token and refresh token(response)
-jwt.io
-gmail oauth flow with java
--------------------------------------------------------------------------------------------------------------------------
-												OAUTH
-												
-Access granting protocol. Data access without sharing username and passwords for every application.
-Federated Authentication(App 2 App)
-Delegated Authentication(App 2 other app's selected access)
---------------------------------------------------------------------------------------------------------------------------------
-												Caching
-
-Server cache
-DB Cache
-Browser Cache
-
-
-lazy Loading(check cahce, if not present write into cache and return from datasource)
-Read through(if data not in cahce, save into cahce from datasource and then return from Cache)
-Write through (Write everything into cache and then save into db)
-Write behind()
- 	
--------------------------------------------------------------------------------------------------------------------------------
-								what is restless and resfull services?
-
-I had to smile when you mentioned “restless” but I understand what you mean. Not many people talk about services being restless. They generally call them SOAP or just services. Restless is basically any service that doesn’t follow the REST protocol
-The main difference ins basically that REST is meant to be used with the HTTP protocols and thus basically uses web servers for the server side. Other services can use HTTP but can also use other transport layers instead. (SOAP can use SMTP, for example, which is an email protocol!)
-
-										Java Message Service
-JMS stands for Java Message Service. JMS is a standard that defines how you can access enterprise messaging systems from Java programs. 
-JMS implemented by messaging service providers like IBM MQ(message queueing) to allow JMS client applications to access the provider’s messaging service
-MQ is communication b/n service request and response
------------------------------------------------------------------------------------------------------------------------------
-										Message Queue
-MQ queues can be thought of as conduits to transport messages between Queue Managers. There are four different types of MQ queues and one related object. The four different types of queues are: Local Queue (QL), Remote Queue (QR), Transmission Queue (TQ), and Dead Letter Queue, and the related object is a Channel (CH)
--------------------------------------------------------------------------------------------------------------------------------
-											Splunk
-Use Splunk for Log Analysis
-monitoring, searching, analyzing, visualizing and acting on voluminous streams of real-time machine data
----------------------------------------------------------------------------------------------------------------------------------
-											Dockers
-
-Docker is a basic tool, like (git VCS) for app's operating system. It uses btrfs (a copy-on-write filesystem) to keep track of filesystem. has a central repository of disk images (upload and download images) that allow you to easily run different operating systems.
-The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
-In the case of Linux and non-Hyper-V containers, the Host OS shares its kernel with running Docker containers. For Hyper-V each container has its own Hyper-V kernel
-Docker images can be pushed to a repository and can be pulled down to any other host to run containers from that image.
-when we want to distribute/collaborate on your app's operating system with a team We use it 
-Docker is basically a container engine which uses the Linux Kernel features like namespaces and control groups to create containers on top of an operating system and automates application deployment on the container 
-Docker has an workflow for moving application from developers laptop, test environment to production
-
-Dockers have docker containers, images, registries, docker client.
-image is a file used to execute code in a Docker container. An image is built from the instructions
----------------------------------------------------------------------------------------------------------------------------------
-						difference between docker container and Virtual Machine?
-Docker is container based technology, Virtual Machine on the other hand, is not!
-In Docker, the containers share the host OS kernel, VM environment, shares hardware resource from the host.
-With a container environment, multiple workloads can run with single OS.In Virtual Machine environment, each workload needs a complete OS.
-
--------------------------------------------------------------------------------------------------------------------------------
-									Wrapper Classes in Java
-									
-A Wrapper class is a class contains a primitive data types. They convert primitive data types into objects. When we create an object to a wrapper class, it contains a field and in this field, we can store a primitive data types. 
-
+Comparable interface has compareTo(T obj) method which is used by sorting methods. We should override this method in such a way that it returns a negative integer, zero, or a positive integer if “this” object is less than, equal to, or greater than the object passed as an argument.													
 -------------------------------------------------------------------------------------------------------------------------
 										Enterprise JavaBeans (EJB)
 Has the business logic of the model.
@@ -449,6 +283,139 @@ The beans in spring container can be created in five scopes i.e.
 
 We can define bean scope in -> 
 -------------------------------------------------------------------------------------------------------------------------
+UpCasting
+
+Upcasting is "casting a subtype to a supertype", upward to the inheritance tree. In general, we don't use upcasting unless if we want to write a code which deals only supertype.
+
+Downcasting is casting to a subtype, downward to the inheritance tree. Downcasting may fail if the actual object type is not the target object type. by throwing a ClassCastException.
+--------------------------------------------------------------------------------------------------------------------------
+HTTP(Hypertext Transfer Protocol)
+
+--------------------------------------------------------------------------------------------------------------------------
+						 convert JSON to XML or XML to JSON?
+first convert from json,xml -> string, 
+convert line break -> create object-> convert into xml, json 
+Using the JsonConvert class
+// XmlDocument doc = JsonConvert.DeserializeXmlNode(json);
+==========================================================================================================================
+												Serialization
+
+Serialization is the process of "converting an object into a stream of bytes to store in a database", or a file. Its main purpose is to save the state of an object in order to be able to recreate it when needed. The reverse process is called deserialization.
+											serialize vs marshall
+When you serialize an object, only the member data within that object is written to the byte stream; not the code that actually implements the object.
+
+Marshalling is a process to transfer data between the RMI (Remote Method Invocation is an API for creating applications, for communicating b/n applications using two objects stub and skeleton). 
+
+It's a process of converting the data or the objects into a byte-stream, and "unmarshalling" is the reverse process of converting the byte-stream beack to their original data or object using "serialization".
+--------------------------------------------------------------------------------------------------------------------------
+										        Jackson API
+Jackson is a very popular and efficient java based library "to serialize or map java objects to JSON and vice versa".
+achived in 3 ways-
+-> Data Binding* (using annotations) [object - LinkedHashMap<String,Object> , array - ArrayList<Object> ,string - String]
+-> Tree Model (tree representation of JSON using objectmapper)
+-> Streaming API(JsonParser reads the data and JsonGenerator writes the data)		
+
+									   ObjectMapper
+ObjectMapper is the main class of Jackson library. It provides functionality for reading and writing JSON from POJOs or JSON Tree Model (JsonNode). It supports polymorphism and Object identity. It act as a factory for more advanced ObjectReader and ObjectWriter classes.
+--------------------------------------------------------------------------------------------------------------------------
+													JSON
+JSON (JavaScript Object Notation) is a text-based format shows structured data based on JavaScript object. 
+It's used for transmitting data in web applications ie., between a server and web application.
+
+To convert a Java object into JSON, the we use: -> GSON & JACKSON API
+1. Add jar files of Jackson
+2. Create a POJO(which convert into JSON)
+3. Create a Java class (Convert the object into JSON using ObjectMapper class of JacksonAPI)
+4. Execute. 
+performing operations.
+-------------------------------------------------------------------------------------------------------------------
+ API
+
+used to build programs that run on a Web server
+-------------------------------------------------------------------------------------------------------------------------
+ 											webservice
+ application to application communication(request, response)
+ platform independent
+ communication over the network
+                                            	 REST API
+
+communication between client and server. Services are using URI (Unified Resource Identifier) using HTTP protocol.
+URI is similar to URL of a webpage, if you want to call a webservice, you can use a URI and call the service using HTTP request.
+No complex envelopes and protocols(unlike in soap), services work with Resources instead of operations.
+REST has an architectural style which makes it processing free and flexible.
+REST is faster compared to SOAP.
+
+												SOAP
+SOAP is an older web server technology with a complex definition for the messages that are sent back and forth. SOAP allows only XML data format. These messages are so called "Envelopes"(head, body) with additional information.
+identify the Service and the Operations like GetCustomer, SaveCustomer(), UpdateCustomer()
+because the operations are named by the developers. So anyone can name the operations differently. Because of this, the consumer / client needs to know the service contract completely if they need to work with that service. Also, they need to know which operation is doing what kind of activity.
+
+Path Variable (identifying resource)and Query Parameter(filtering items)
+
+http://www.google.com/hi/there?qs1=you&qs2=tube
+query params
+
+{
+  qs1: 'you',
+  qs2: 'tube'
+}
+req params
+
+{
+  param1: 'there'
+}
+
+--------------------------------------------------------------------------------------------------------------------------
+			JWT (JSON web token)
+1.API authorizing
+2.data transfer[having all the details]
+
+api's are secured with oauth2.0
+access token and refresh token(response)
+jwt.io
+gmail oauth flow with java
+-------------------------------------------------------------------------------------------------------------------------
+												OAUTH
+												
+Access granting protocol. Data access without sharing username and passwords for every application.
+Federated Authentication(App 2 App)
+Delegated Authentication(App 2 other app's selected access)
+--------------------------------------------------------------------------------------------------------------------------
+								what is restless and resfull services?
+
+I had to smile when you mentioned “restless” but I understand what you mean. Not many people talk about services being restless. They generally call them SOAP or just services. Restless is basically any service that doesn’t follow the REST protocol
+The main difference ins basically that REST is meant to be used with the HTTP protocols and thus basically uses web servers for the server side. Other services can use HTTP but can also use other transport layers instead. (SOAP can use SMTP, for example, which is an email protocol!)
+
+										Java Message Service
+JMS stands for Java Message Service. JMS is a standard that defines how you can access enterprise messaging systems from Java programs. 
+JMS implemented by messaging service providers like IBM MQ(message queueing) to allow JMS client applications to access the provider’s messaging service
+MQ is communication b/n service request and response
+--------------------------------------------------------------------------------------------------------------------------
+										Message Queue
+MQ queues can be thought of as conduits to transport messages between Queue Managers. There are four different types of MQ queues and one related object. The four different types of queues are: Local Queue (QL), Remote Queue (QR), Transmission Queue (TQ), and Dead Letter Queue, and the related object is a Channel (CH)
+--------------------------------------------------------------------------------------------------------------------------
+											Splunk
+Use Splunk for Log Analysis
+monitoring, searching, analyzing, visualizing and acting on voluminous streams of real-time machine data
+--------------------------------------------------------------------------------------------------------------------------
+											Dockers
+
+Docker is a basic tool, like (git VCS) for app's operating system. It uses btrfs (a copy-on-write filesystem) to keep track of filesystem. has a central repository of disk images (upload and download images) that allow you to easily run different operating systems.
+The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
+In the case of Linux and non-Hyper-V containers, the Host OS shares its kernel with running Docker containers. For Hyper-V each container has its own Hyper-V kernel
+Docker images can be pushed to a repository and can be pulled down to any other host to run containers from that image.
+when we want to distribute/collaborate on your app's operating system with a team We use it 
+Docker is basically a container engine which uses the Linux Kernel features like namespaces and control groups to create containers on top of an operating system and automates application deployment on the container 
+Docker has an workflow for moving application from developers laptop, test environment to production
+
+Dockers have docker containers, images, registries, docker client.
+image is a file used to execute code in a Docker container. An image is built from the instructions
+--------------------------------------------------------------------------------------------------------------------------
+						difference between docker container and Virtual Machine?
+Docker is container based technology, Virtual Machine on the other hand, is not!
+In Docker, the containers share the host OS kernel, VM environment, shares hardware resource from the host.
+With a container environment, multiple workloads can run with single OS.In Virtual Machine environment, each workload needs a complete OS.
+-------------------------------------------------------------------------------------------------------------------------
 												CORS
 Cross-origin resource sharing (CORS) is a W3C specification implemented by most browsers that allows you to specify in a flexible way what kind of cross domain requests are authorized, instead of using less powerful hacks like IFrame or JSONP.
 open access across domain-boundaries.
@@ -472,7 +439,30 @@ All classes that do not extend or implement some specialized classes and interfa
 
 The POJO name is used to emphasize that a given object is an ordinary Java Object, not a special object, and in particular not an Enterprise JavaBean.
 
---------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
+Caching (caffeine/ redis)
+
+Server cache
+DB Cache
+Browser Cache
+
+
+lazy Loading(check cahce, if not present write into cache and return from datasource)
+Read through(if data not in cahce, save into cahce from datasource and then return from Cache)
+Write through (Write everything into cache and then save into db)
+Write behind()
+==========================================================================================================================
+												JPA(Java Persistance API)
+
+JPA, makes life easy for interaction with database instances. 
+It is a collection of classes and methods used to store data in database.
+It creates a mapping file(ORM.xml) between object models (Java program) and relational models (database program).
+It stores business entities(POJO) as entities and manage the entities with relationships(1-1, 1-many, Many-1).
+JPA INTERFACES -> Entity, EntityManaager, EntityManagerFactory, Persistance, Query
+
+(Eager fetch)Fetching the whole record using Primary Key
+(lazy fetch)fetches the record for the first time and stores it in cache memory for furthur use. Performance wise, lazy fetch is preferable.
+--------------------------------------------------------------------------------------------------------------------------
 												Hibernate
 
 Spring Boot uses Hibernate(artist) as the default JPA(art) implementation.
@@ -481,7 +471,7 @@ If you change the name or type of a field, or add another field to the model, th
 ---------------------------------------------------------------------------------------------------------------
 
 Please explain the difference between an inner join and an outer join?
-		Inner Join returns all rows even for one match in two tables(X intersection Y).
+		Inner Join returns common in two tables(X intersection Y).
 		
 		Outer Join has -> left outer join, right outer join and full outer join.  
 		   Left Outer Join gives rows in A and common rows in B 
@@ -538,7 +528,6 @@ custom configurations - on bean, on class, on properties
 Spring Actuators - custom endpoints to get staus of app
 
 
-
 			POI        for excel
 spring-boot-maven      -plugin, to package a web application as an executable JAR
 spring-boot-starter: core starter, including auto-configuration support, logging, and YAML
@@ -553,22 +542,24 @@ https://springframework.guru/spring-framework-annotations/
 
 @Autowiring(DI injection) injects the object dependency implicitly by uses setter inj, constructor i or field injection.
 @Entity is used to mark the class as a persistent Java class in DB
+@RequestMapping - it routes the path
 @Qualifier more control of the dependency injection process
 @Column annotation is used to define the properties of the column that will be mapped to the annotated field
 @Requiered On bean setter method to populated at configuration time without BeanInitializer exception.
 @Lazy bean will be created and initialized only when it is first requested
 @Value to inject values from a property file into a bean’s attribute
 @Repository tells Spring to bootstrap about repository during component scan.
-@Configuration has methods to instantiate and configure dependencies.
 @Bean works with @Configuration to create Spring beans.
 @Component indicate a Spring component to component-scan add into the application context.
 @Controller to indicate the class is a Spring controller
 
 @SpringBootApplication == @ComponentScan + @Configuration + @EnableAutoConfiguration//entry point
 @ComponentScan(used with configuration) is also used to specify base packages using basePackageClasses 
-@SpringBootApplication do a component scan only for its sub-packages!
+@Configuration has methods to instantiate and configure dependencies.
+
 @Get,Put, Post, Delete Mapping annotations are for mapping HTTP CRUD Operations.
 @RestController is a convenience annotation that combines @Controller(every method returns a object instead of a view) and @ResponseBody(sends HTML as response) 
+
 @MappedSuperclass in hibernate supports entities to keep basic properties in a super class. The super class annotated by @MappedSuperclass will not behave as independent entity. It will not be associated with any database table. If we want to change the column name different from super class, we need to use @AttributeOverride.
 @GetMapping("/notes") annotation is a short form of @RequestMapping(value="/notes", method=RequestMethod.GET)
 
@@ -580,15 +571,30 @@ PascalCase
 snake_case
 kebab-case
 
+String pool
+
+Thread Pool
+-------------------------------------------------------------------------------------------------------------------------
+													SWAGGER
+
+documenting of endpoints- all possibilities
+Conusumer will have all the information needed
+springfox
+
 -------------------------------------------------------------------------------------------------------------------------
 									Spring security   
 authentication, authorization Java apps
 =======================================================================================================================
+										
+Monolithic VS SOA VS MicroService
+
 										Microservices
 Microservices can adapt easily to other frameworks or technologies.
 Failure of a single process does not affect the entire system.
 Provides support to big enterprises as well as small teams.
 Can be deployed independently and in relatively less time.
+
+Disadvantage of DEVOPS - everything is individual
 
 Note: App dynamics is tool provided on service instance and monitors how many end points are hit per sec.
 How many transactions per sec. If transactions are going beyond certain threshold value we are going to advice go for another node.
@@ -614,7 +620,7 @@ State -> Changing the state from one place to another (Overriding)
 Builder/Composite -> Creating an object by assosiating with multiple objects
 Observer -> If the object's state changes, it impacts/notifies the other places where it used
 
-===========================================================================================================================
+=========================================================================================================================
 									PROD Support
 
 Tools:
@@ -639,9 +645,6 @@ Tools:
 business observations
 innovation US
 layman language
-
-
-
 
 =====================================================================================================================
 							Behavior Driven Development(simply BDD)
@@ -679,13 +682,13 @@ git lab as enterprise edition
 jenkins for deploying the java project by saving the configurations.										
 
 $i excess funds
---------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 												ODBC(open db connection)
 
 With ODBC, we can "access data from any application, regardless of any DBMS" by inserting a middle layer "DATABASE DRIVER" between an application and the DBMS. 
 DATABASE DRIVER translate the application's data queries into commands that DBMS understands.The application must be capable of issuing ODBC commands and the DBMS must be capable of responding to them.
 
----------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 											JDBC(Java Database Connectivity)
 
 JDBC "allows Java programs to interact with any SQL based database" and execute SQL statements. It has a single database application that run on different platforms which interacts with different DBMSs.
@@ -696,10 +699,10 @@ MySQL(RDBMS) database can replicate across multiple nodes. We use MySQL for mult
 MongoDB(distributed) is a good choice for databases having no specific schema definitions or if it keeps changing like mobile apps & real-time analytics.
 The main difference is the way of storing the data(table-based VS key-value pair, document or graph).
 We can scale in load on single server(MySQL) on other hand we can add servers(NoSQL).
----------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 								One to many relation
 Consider the following example. Book table (pk_book_id, title, ISBN) is associated with Author (pk_author_id, author_name, phone_no, fk_book_id). One book can have many authors. This relationship can be implemented by using (PK_Author_Id as Primary Key) and (Fk_Author_Id as Foreign Key).
----------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 													Save vs Persist
 save() generates a new identifier and INSERT record into database while saveOrUpdate can either INSERT or UPDATE based upon existence of record.
 persist returns void.
@@ -719,9 +722,9 @@ SET @variable = 2013;   // set value
 SELECT @variable := "avinash"; //return value(:= means assigning)
 PRIMARY KEY
 AUTO_INCRMENT
------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 "CODE.AMAZON"
------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 1×× Informational
 100 continues       			101 Switching protocols        102 Processing
 
@@ -752,15 +755,10 @@ AUTO_INCRMENT
 504 Gateway Timeout           505 HTTP Version Not Supported     506 Variant Also Negotiates
 507 Insufficient Storage             508 Loop Detected        510 Not Extended
 511 Network Authentication Required      599 Network Connect Timeout Error
------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 										
-DYNATRACE 
-SUMO LOGIC
-
-
-
-
-
+stack memory is used to store local variables and function, Variables stored in stacks are only visible to the owner.
+heap memory is used to store objects in Java, visible to all threads.
 
 Stack memory is used only by one thread of execution.	    Heap memory is used by all the parts of the application.
 Stack memory can’t be accessed by other threads.	        Objects stored in the heap are globally accessible.
@@ -778,7 +776,7 @@ When an applet begins, the methods are called, in this sequence:
 2. start( )
 3. paint( )
 destroy()(remove completely from memory, only after free up any resources attached to the applet)
-------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 											Servlet(pacckage ->javax.servlet)
 
 Java Servlet is a "way to create dynamic web pages".
@@ -786,14 +784,14 @@ Small program which handles complex requests from a web or application server.
 once started, it stays in memory and used for multiple requests.
 CYCLE->
 Clients send the request to the web server -> Web server receives the request -> Web server passes the request to the corresponding servlet -> servlet processes the request and generate the response(output) -> servlet send the response back to the web server -> Web server sends the response back to the client and he can see it on screen.
-----------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 										       JSP
 
 Java Server Page (JSP) is a server-side technology(extension to the Java servlet)
 separates the logic from the actual design and display of the webpage.
 JSP is translated into Java servlet before running, and processing HTTP requests to generate response like servlets.
 JSPs are fully interoperable with servlets. You can include output from a servlet or forward the output to a servlet, and a servlet can include output from a JSP or forward output to a JSP.
-============================================================================================================================
+==========================================================================================================================
 		 								Request Dispatcher
 									
 Request Dispatcher is an interface defines an object which can dispatch the request to any resources on the server(it may be html, servlet or jsp).
