@@ -20,47 +20,47 @@ int, double, char
 EX->
 
 class Multi extends Thread{  
-public void run(){  
-System.out.println("thread is running...");  
-}  
-public static void main(String args[]){  
-Multi t1=new Multi();  
-t1.start();  
- }  
-Output:thread is running
 
+public void run(){  
+     System.out.println("thread is running...");  
+}  
+
+public static void main(String args[]){  
+		Multi t1 = new Multi();  
+		t1.start();  
+ }  }
+
+Output:thread is running
+-   -   -  -   -   -   -   
 2.By IMPLEMENTING Runnable interface (should be implemented by any class whose instances are intended to be executed by a thread. Runnable interface have only one method named run()
 EX->
 
 class Multi implements Runnable{  
+
 public void run(){  
-System.out.println("thread is running...");  
+	System.out.println("thread is running...");  
 }  
   
 public static void main(String args[]){  
-Multi3 m1=new Multi3();  
-Thread t1 =new Thread(m1);  
-t1.start();  
- }  
-}  
+	Multi m1 = new Multi();  
+	Thread t1 = new Thread(m1);  
+	t1.start();  
+ }  }  
+
 Output:thread is running..
 --------------------------------------------------------------------------------------------------------------------------
 
-												Threadsafe
+																				  	Threadsafe
 
-a class is thread-safe when it continues to "behave correctly when accessed from multiple threads".
-Thread-safe code is code that will work even if many Threads are executing it simultaneously.
-A piece of code is thread-safe if it only manipulates shared data structures in a manner that guarantees safe execution by multiple threads at the same time
+A class is thread-safe when it continues to "behaves/ executes correctly when accessed/executed from multiple threads at same time" 
 all the basic collection classes - ArrayList, LinkedList, HashMap, HashSet, TreeMap, TreeSet, etc - all are not synchronized
 In fact, all collection classes (except Vector and Hashtable) in the java.util package are not thread-safe
 
 how to make thread safe 
-
--> Statelesss - maintaining the same state for the object by returning at the same place
--> Synchronizing the objects
--> Concurrent Collections - dividing the data into segments, multiple threads can access the multiple segments at the same time.
 -> Making object final
--> Making the object private
+-> Making the object private - maintaining the same state for the object by returning at the same place
+-> Synchronizing the objects
+-> Concurrent Collections - dividing the data into segments/process, multiple threads can access the multiple segments at the same time.
 
 --------------------------------------------------------------------------------------------------------------------------
                                            Collections
@@ -71,59 +71,67 @@ ArrayList uses a dynamic array to store the duplicate element of different data 
 
 LinkedList uses a double linked list internally to store the elements. It can store the duplicate elements. It maintains the insertion order and is not synchronized. In LinkedList, the manipulation is fast because no shifting is required.
 
-Hashmap stores the data in (Key, Value) pairs. To access a value it must know its key. Hashing is a technique of converting a large String to small String that represents the same String. A shorter value helps in indexing and faster searches. In a HashMap the key is an object, that contains hashCode() and "equals(Object)" methods (to check already inserted or not)
+Hashmap stores the data in Key, Value pairs. To access a value it must know its key. Hashing is a technique of converting a large String to small String that represents the same String. A shorter value helps in indexing and faster searches. In a HashMap the key is an object, that contains hashCode() and "equals(Object)" methods (to check already inserted or not)
 
 Queue uses FIFO(First In First Out)
 
-Vector uses a dynamic array to store the data elements. It is similar to ArrayList. However, it is synchronized and contains many methods that are not the part of Collection framework.
-
 Stack used to store & delete LIFO(Last In First Out). push n pop methods.
 
-Set unordered set of elements which doesn't allow us to store the duplicate items. We can store at most one null value in Set. Set is implemented by HashSet, LinkedHashSet, and TreeSet.
+Set unordered set of elements which DOESNOT allow us to store the duplicate items. We can store at most one null value in Set. Set is implemented by HashSet, LinkedHashSet, and TreeSet.
 
-Hashset uses a hash table for storage. Hashing is used to store the elements in the HashSet. It contains unique items.HashSet  uses HashMap internally.
+Hashset uses a hash table for storage. Hashing is used to store the elements in the HashSet. It contains UNIQUE items.HashSet  uses HashMap internally.
 
 Hashtable is synchronized. It is thread-safe and can be shared with many threads. doesn’t allow any null key or value.
+
+Vector uses a dynamic array to store the data elements. It is similar to ArrayList. However, it is synchronized and contains many methods that are not the part of Collection framework.
 
 flatMap() produces a stream of new values
 map() it produces a single value
 
 								COLLLISION (only same indexes) different from replacing same value
+
 distribute the values
 Store in next bucket
 Create a linked list at the index.
 --------------------------------------------------------------------------------------------------------------------------
-Wrapper Classes in Java
+																						Wrapper Class
 									
-A Wrapper class is a class contains a primitive data types. They convert primitive data types into objects. When we create an object to a wrapper class, it contains a field and in this field, we can store a primitive data types. 
+A Wrapper class is a class contains a primitive data types[toString(), int ti INTEGER vice versa]. They convert primitive data types into objects. When we create an object to a wrapper class, it contains a field and in this field, we can store a primitive data types. 
 
 -------------------------------------------------------------------------------------------------------------------------
-												Static vs Final(Keywords)
+																			Static vs Final(Keywords)
 
 The static member can be accessed before the class object is created. It share among all the objects of a class. 
+
 Final keyword is used to declare, a constant variable, a method which cannot be overridden and a class that can not be inherited
 but you can still change its state (using setter methods e.g) or using append functions. 
-final modifier is applicable for variable but not for objects.
+
+Final modifier is applicable for variable but not for objects.(static final void())
 --------------------------------------------------------------------------------------------------------------------------
-Final class can't be inherited, final method can't be overridden and final variable value can't be changed. 
+
+Final CLASS can't be inherited, final METHOD can't be overridden and final VARIABLE value can't be changed. 
 Finally is used to place important code, it will be executed whether exception is handled or not. 
 Finalize is used to perform clean up processing just before object is garbage collected.
 --------------------------------------------------------------------------------------------------------------------------
- 													Checked exceptions
- Checked exceptions are CHECKED at compile time. 
+ 													                  Exceptions
 
- Unchecked exceptions are CHECKED at run time.
+Checked exceptions are checked at COMPILE time. file not found, input io 
 
-Throws clause is used to declare an exception, which means it works similar to the try-catch block -> throws ArithmeticException; 
+Unchecked exceptions are checked at RUN time. arithematic, out of bounds, npe 
+
+Throws(method) clause is used to declare an exception- public int division(int a, int b) throws ArithmeticException
+
 Throw keyword is used to throw an exception explicitly  -> throw new ArithmeticException("Arithmetic Exception");
 
+ConcurrentModificationException - modify an element, before finishing the iteration
 
-ConcurrentModificationException - before finishing our iteration if we modify an element
 --------------------------------------------------------------------------------------------------------------------------
 JAVA - SOLID RULES
 DB  - ACID Properties
-												ACID Rules
-In order to maintain consistency in a database, before and after transaction, certain properties are followed. They r ACID prop.
+																				
+																				ACID Rules
+Maintain consistency in a database, before and after transaction, we follow - ACID properties
+
 Atomicity(A) - By this, we mean that either the entire transaction takes place at once or doesn’t happen at all. There is no midway i.e. transactions do not occur partially. Each transaction is considered as one unit and either runs to completion or is not executed at all. Atomicity is also known as the ‘All or nothing rule’.
 It involves following two operations.
 —Abort: If a transaction aborts, changes made to database are not visible.
@@ -135,15 +143,19 @@ Isolation(I) − There may be many transaction processing with the same data set
 
 Durability (D) − Once a transaction has completed, the results of this transaction have to be made permanent and cannot be erased from the database due to system failure.
 --------------------------------------------------------------------------------------------------------------------------
-  								        SOLID rules while writing a program
+  								                 SOLID rules while writing a program
 
 Single Responsibility (class should have only one responsibility. Further, it should only have one reason to change)
+
 Open/Closed (Open for Extension, Closed for Modification)
-Liskov Substitution (if class A is subtype of class B,then we should replace B with A without creating any disturbances in program)
+
+Liskov Substitution (if class A is subtype of class B,then we should replace B with A without creating any disturbances)
+
 Interface Segregation (large interfaces r split into smaller ones. Classes r concerned about methods that interest to them)
+
 Dependency Inversion (decoupling high-level modules depending on low-level modules. Now both will depend on abstractions)
 --------------------------------------------------------------------------------------------------------------------------
-									OOP(object oriented programming)
+																		OOP(object oriented programming)
 
 programming based on the concept of "objects",instead of just functions and procedures!
 -> Inheritance    -> Encapsulation   -> Polymorphism   -> Abstraction     
@@ -152,39 +164,44 @@ programming based on the concept of "objects",instead of just functions and proc
 -> Composition(restrict form of aggregation, methods depend on each other, part-of relation, cannot exist without eachother)  
 -> Class/Object
 --------------------------------------------------------------------------------------------------------------------------
-											encapsulation (getter,setter)
+																encapsulation (getter,setter)
 
-"each object is private, inside a class. Other objects don’t have direct access but, they can access public functions(methods) but cannot change them". 
-[get(),set(), seperate code, methods and communicate via method calling] 
-It is binding methods and variables together. it provides data hiding. it helps in controlling the access using access modifiers.
+"each object is private, inside a class. Other objects don’t have direct access but, they can access public functions(methods) but cannot change them". [get(),set(), seperate code, methods and communicate via method calling] 
+
+It helps in binding methods and variables together. 
+It provides data hiding. 
+It helps in controlling the access using access modifiers.
 
 ENCAPSULATION AND ABSTRACTION can help us in develop and maintain a huge codebase.
 --------------------------------------------------------------------------------------------------------------------------
-											 abstraction (only methods no logic)
+											 					abstraction (only methods no logic)
 
 Applying abstraction means that each "object should only expose a high-level mechanism and hide internal implementations".
 it is an natural extension of encapsulation.
 
-EXAMPLE -> a coffee machine makes lot of noises under the hood. But, all you have to do is put in coffee and press a button without knowing how it works.
-           Cell phones are complex. But using them is simple.
-a software update rarely affect the abstraction you use.
+EXAMPLE -> 
+coffee machine makes lot of noises under the hood, you have to just put coffee and press a button without knowing how it works
+
+Cell phones are complex. But using them is simple, a software update rarely affect the abstraction you use.
 --------------------------------------------------------------------------------------------------------------------------
-												inheritance (parent child)
+												         inheritance (parent child) extends
 
 Objects are often very similar while writing a code. They share common logic, But they’re not entirely the same!! 
 by using inheritance, we can reuse the common logic and seperate unique logic into a separate class.
 The "child class reuses all fields and methods of the parent class (the common part) and can implement its own" (unique part).
 --------------------------------------------------------------------------------------------------------------------------
-												Polymorphism(over ride/load)
+											      	 	Polymorphism(over ride/load)
 
-Is a way to use class exactly like its parent without any confusion with mixing types. But each child class have its own methods.
+Ii is a way to use class exactly like its parent without any confusion with mixing types. But each child class have its own methods.
 Parent class has bunch of methods. "child inherits parent class and implents it's own version of methods".
---------------------------------------------------------------------------------------------------------------------------
-													Overloading 
-Overloading occurs when two or more methods in one class have the same method name but different parameters.
 
-										Overriding(two logics differed by called object parent or child in diff classes)
-Overriding means having methods with the same method name and parameters but subclass changes superclass method logic.(not private, static or final methods)
+																Overloading 
+Overloading occurs when two or more methods in one class have the SAME METHOD NAME but DIFFERENT parameters.
+
+													Overriding(two logics differed by called object parent or child in diff classes)
+Overriding means having methods with the SAME METHOD NAME and SAME PARAMETERS but subclass changes superclass method LOGIC.(not private, static or final methods)
+
+run time polymorphism 
 --------------------------------------------------------------------------------------------------------------------------
 							              Immutable(for OBJECTs, its Thread safe) 
 
@@ -193,19 +210,24 @@ immutability applicable for an object, classes(if final, no setters, private fie
 Advantages of immutable?
   It decreases the overhead by garbage collection and it protect from code corrupting. 
 We should prefer Classes should be immutable unless there's a very good reason to make them mutable or try to limit its mutability as much as possible.
+
+All the datatypes are mutable except String(objects are cached in the String pool and accessed by multiple clients, for security and synchronization. stringbuilder to mute, safe for multithreading)
 --------------------------------------------------------------------------------------------------------------------------
-									abstract class vs interface ?
+															abstract class vs interface ?
 
 Abstraction class and Interface both of them are used for abstraction(shows only useful features & hides the internal implementation)
 
-An "abstract class(uses extends) used to create functionality that child classes can implement or override". 
+An "ABSTRACT CLASS(uses extends) used to create functionality that child classes can implement or override". 
 
-An interface(uses implements) "has definition or signature of functionality but, cannot implement it". 
+An INTERFACE(uses implements) "has definition or signature of functionality but, cannot implement it". 
+
 A class can extend only one abstract class but,it can take advantage of multiple interfaces.
 
 --------------------------------------------------------------------------------------------------------------------------
-									garbage collection
-We cannot force garbage collection. It will only trigger if JVM thinks it needs a garbage collection based on Java heap size. other threads in the application have to be stopped to allow the garbage collector thread to effectively do its work. parent object is set to null
+																Garbage collection
+
+We cannot force garbage collection. It will only trigger if JVM thinks it needs a garbage collection based on Java heap size. other threads in the application have to be stopped to allow the garbage collector thread to effectively do its work. 
+parent object is set to null
 cleans Cyclic dependencies without any live external reference
 finalize() Finalize is used to perform clean up processing just before object is garbage collected.
 
@@ -220,16 +242,18 @@ In deep copy, it copies all fields, and makes copies of objects to which it refe
 
 "MUTABILITY" java 8 feauturs are implemented in an immutable fashion 
 
+"FUNCTIONAL INTERFACES" (EX-> eval(list, n-> n > 3); //printing no greater than 3). A functional interface is an interface that contains only one abstract method(one functionality to exhibit). EX -  Runnable, ActionListener, Comparable
+
 Streams(used for Operations on Collections)
-intermediate   or terminal methods
+intermediate(can modify after this like filter, map) or terminal methods(cant manipulate after like collect)
 
 LAMBDA EXPRESSIONS(Optionals, has body and parameter list)EX- MathOperation multiplication = (int a, int b) -> { return a * b; } )
 ->used to represent the instance of a functional interface
 
+NEW (simple)date-time API- using java.time for handling timezones, poor design like 0/1/1900, thread safe .
+
 "METHOD REFERENCES" which help to point to methods by their names. 
  symbol - two colons :: (ex -> names.forEach(System.out::println)for printing all names in different lines)
-
-"FUNCTIONAL INTERFACES" (EX-> eval(list, n-> n > 3); //printing no greater than 3). A functional interface is an interface that contains only one abstract method(one functionality to exhibit). EX -  Runnable, ActionListener, Comparable
 
 "Parallel Opearions" (sorting, filtering and mapping)
 
@@ -242,15 +266,14 @@ EX-> static <T> Optional<T> of(T value) -> it returns an Optional with the speci
 "NASHORN" (we use jjs tool, to execute javascript codes at console), calling js from java using scriptEngineManager
 EX -> jjs> print("Hello, World!")
 
-"NEW (simple)date-time API" using java.time for handling timezones, poor design like 0/1/1900, thread safe .
-
 -------------------------------------------------------------------------------------------------------------------
-											Comparator vs Comparable
+																			Comparator vs Comparable
+
 Comparator interface compare(Object o1, Object o2) method need to be implemented that takes two Object argument, it should be implemented in such a way that it returns negative int if the first argument is less than the second one and returns zero if they are equal and positive int if the first argument is greater than the second one.
 
 Comparable interface has compareTo(T obj) method which is used by sorting methods. We should override this method in such a way that it returns a negative integer, zero, or a positive integer if “this” object is less than, equal to, or greater than the object passed as an argument.													
 -------------------------------------------------------------------------------------------------------------------------
-										Enterprise JavaBeans (EJB)
+																Enterprise JavaBeans (EJB)
 Has the business logic of the model.
 EJB systems are written in Java, they are platform independent. Being object oriented(POJO), they can implement into existed systems probably with recompiling and configuration.
 An EJB server provides functions like threading, concurrency, security and memory management. 
@@ -261,7 +284,7 @@ In Container-managed transactions (CMT), "EJB" takes care of starting and commit
 In Bean-managed transactions (BMT), the "bean-provider" take care of the transactions(start and commit). Session and message-driven beans may use BMT.
 
 -------------------------------------------------------------------------------------------------------------------------
-											Spring Bean Scope
+																							Spring Bean Scope
 
 The core of spring framework is it’s bean factory and mechanism to create and manage beans inside the Spring container.
 @Bean
@@ -283,7 +306,7 @@ The beans in spring container can be created in five scopes i.e.
 
 We can define bean scope in -> 
 -------------------------------------------------------------------------------------------------------------------------
-UpCasting
+																									UpCasting
 
 Upcasting is "casting a subtype to a supertype", upward to the inheritance tree. In general, we don't use upcasting unless if we want to write a code which deals only supertype.
 
@@ -298,17 +321,18 @@ convert line break -> create object-> convert into xml, json
 Using the JsonConvert class
 // XmlDocument doc = JsonConvert.DeserializeXmlNode(json);
 ==========================================================================================================================
-												Serialization
+																								Serialization
 
 Serialization is the process of "converting an object into a stream of bytes to store in a database", or a file. Its main purpose is to save the state of an object in order to be able to recreate it when needed. The reverse process is called deserialization.
-											serialize vs marshall
+											
+																						Serialize vs marshall
 When you serialize an object, only the member data within that object is written to the byte stream; not the code that actually implements the object.
 
 Marshalling is a process to transfer data between the RMI (Remote Method Invocation is an API for creating applications, for communicating b/n applications using two objects stub and skeleton). 
 
 It's a process of converting the data or the objects into a byte-stream, and "unmarshalling" is the reverse process of converting the byte-stream beack to their original data or object using "serialization".
 --------------------------------------------------------------------------------------------------------------------------
-										        Jackson API
+										       							 Jackson API
 Jackson is a very popular and efficient java based library "to serialize or map java objects to JSON and vice versa".
 achived in 3 ways-
 -> Data Binding* (using annotations) [object - LinkedHashMap<String,Object> , array - ArrayList<Object> ,string - String]
@@ -318,7 +342,7 @@ achived in 3 ways-
 									   ObjectMapper
 ObjectMapper is the main class of Jackson library. It provides functionality for reading and writing JSON from POJOs or JSON Tree Model (JsonNode). It supports polymorphism and Object identity. It act as a factory for more advanced ObjectReader and ObjectWriter classes.
 --------------------------------------------------------------------------------------------------------------------------
-													JSON
+																						JSON
 JSON (JavaScript Object Notation) is a text-based format shows structured data based on JavaScript object. 
 It's used for transmitting data in web applications ie., between a server and web application.
 
@@ -329,14 +353,17 @@ To convert a Java object into JSON, the we use: -> GSON & JACKSON API
 4. Execute. 
 performing operations.
 -------------------------------------------------------------------------------------------------------------------
- API
+ 																							API
 
-used to build programs that run on a Web server
+API is known as the Application Programming Interface and is offered by both the client and the server. In the client world, this is offered by the browser whereas in the server world it’s what is provided by the web service which can either be SOAP or REST.
 -------------------------------------------------------------------------------------------------------------------------
- 											webservice
+ 																					Webservice
  application to application communication(request, response)
  platform independent
  communication over the network
+
+Add these concepts in the RESUME
+
                                             	 REST API
 
 communication between client and server. Services are using URI (Unified Resource Identifier) using HTTP protocol.
@@ -344,26 +371,34 @@ URI is similar to URL of a webpage, if you want to call a webservice, you can us
 No complex envelopes and protocols(unlike in soap), services work with Resources instead of operations.
 REST has an architectural style which makes it processing free and flexible.
 REST is faster compared to SOAP.
+XML, JSON, HTML
 
-												SOAP
+																										SOAP
 SOAP is an older web server technology with a complex definition for the messages that are sent back and forth. SOAP allows only XML data format. These messages are so called "Envelopes"(head, body) with additional information.
 identify the Service and the Operations like GetCustomer, SaveCustomer(), UpdateCustomer()
 because the operations are named by the developers. So anyone can name the operations differently. Because of this, the consumer / client needs to know the service contract completely if they need to work with that service. Also, they need to know which operation is doing what kind of activity.
 
-Path Variable (identifying resource)and Query Parameter(filtering items)
+Path Variable (identifying resource) and Query Parameter(filtering items)
 
 http://www.google.com/hi/there?qs1=you&qs2=tube
-query params
 
+query params
 {
   qs1: 'you',
   qs2: 'tube'
 }
-req params
 
+req params
 {
   param1: 'there'
 }
+
+SOAP stands for Simple Object Access Protocol whereas REST stands for Representational State Transfer.
+SOAP is a protocol whereas REST is an architectural pattern.
+SOAP uses service interfaces to expose its functionality to client applications while REST uses Uniform Service locators to access to the components on the hardware device.
+SOAP needs more bandwidth for its usage whereas REST doesn’t need much bandwidth.
+Comparing SOAP vs REST API, SOAP only works with XML formats whereas REST work with plain text, XML, HTML and JSON.
+SOAP cannot make use of REST whereas REST can make use of SOAP.
 
 --------------------------------------------------------------------------------------------------------------------------
 			JWT (JSON web token)
@@ -374,7 +409,9 @@ api's are secured with oauth2.0
 access token and refresh token(response)
 jwt.io
 gmail oauth flow with java
--------------------------------------------------------------------------------------------------------------------------
+
+https://anil-pace.medium.com/json-web-tokens-vs-oauth-2-0-85dd0b32057d
+
 												OAUTH
 												
 Access granting protocol. Data access without sharing username and passwords for every application.
@@ -413,15 +450,15 @@ image is a file used to execute code in a Docker container. An image is built fr
 --------------------------------------------------------------------------------------------------------------------------
 						difference between docker container and Virtual Machine?
 Docker is container based technology, Virtual Machine on the other hand, is not!
-In Docker, the containers share the host OS kernel, VM environment, shares hardware resource from the host.
+In Docker, the containers share the host OS kernel, VM environment shares hardware resource from the host.
 With a container environment, multiple workloads can run with single OS.In Virtual Machine environment, each workload needs a complete OS.
 -------------------------------------------------------------------------------------------------------------------------
-												CORS
+																						CORS
 Cross-origin resource sharing (CORS) is a W3C specification implemented by most browsers that allows you to specify in a flexible way what kind of cross domain requests are authorized, instead of using less powerful hacks like IFrame or JSONP.
 open access across domain-boundaries.
 instruct browser to allow only certain HTTP methods (GET/PUT/POST/DELETE etc) on domain URLs.
 -------------------------------------------------------------------------------------------------------------------------
-											Persistant Class
+																			Persistant Class
 
 Java classes whose objects or instances are stored in database tables are called persistent classes in Hibernate. 
 Hibernate works best if these classes follow Plain Old Java Object (POJO) programming model.
@@ -473,7 +510,7 @@ If you change the name or type of a field, or add another field to the model, th
 Please explain the difference between an inner join and an outer join?
 		Inner Join returns common in two tables(X intersection Y).
 		
-		Outer Join has -> left outer join, right outer join and full outer join.  
+Outer Join has -> left outer join, right outer join and full outer join.  
 		   Left Outer Join gives rows in A and common rows in B 
 		   Right Outer Join gives rows in B and common rows in A
 		   Full outer Join returns all rows in A and B (A union B).
@@ -489,7 +526,7 @@ Spring Test
 
  it provides support to various frameworks such as Struts, Hibernate, EJB, etc
  basic dependencies to start spring is "springweb" and "springwebmvc". All other dependencies are added automatically during build time.
-  ======================================================================================================================
+======================================================================================================================
 									     	springboot:
 
 extension of the Spring framework which removes the boilerplate configurations to set up Spring application.
@@ -543,7 +580,7 @@ https://springframework.guru/spring-framework-annotations/
 @Autowiring(DI injection) injects the object dependency implicitly by uses setter inj, constructor i or field injection.
 @Entity is used to mark the class as a persistent Java class in DB
 @RequestMapping - it routes the path
-@Qualifier more control of the dependency injection process
+@Qualifier more control of the dependency injection the specific service 
 @Column annotation is used to define the properties of the column that will be mapped to the annotated field
 @Requiered On bean setter method to populated at configuration time without BeanInitializer exception.
 @Lazy bean will be created and initialized only when it is first requested
@@ -551,14 +588,15 @@ https://springframework.guru/spring-framework-annotations/
 @Repository tells Spring to bootstrap about repository during component scan.
 @Bean works with @Configuration to create Spring beans.
 @Component indicate a Spring component to component-scan add into the application context.
-@Controller to indicate the class is a Spring controller
 
 @SpringBootApplication == @ComponentScan + @Configuration + @EnableAutoConfiguration//entry point
 @ComponentScan(used with configuration) is also used to specify base packages using basePackageClasses 
 @Configuration has methods to instantiate and configure dependencies.
+@EnableAutoConfiguration is used for auto-configuring beans present in the classpath
 
 @Get,Put, Post, Delete Mapping annotations are for mapping HTTP CRUD Operations.
 @RestController is a convenience annotation that combines @Controller(every method returns a object instead of a view) and @ResponseBody(sends HTML as response) 
+@Controller to indicate the class is a Spring controller
 
 @MappedSuperclass in hibernate supports entities to keep basic properties in a super class. The super class annotated by @MappedSuperclass will not behave as independent entity. It will not be associated with any database table. If we want to change the column name different from super class, we need to use @AttributeOverride.
 @GetMapping("/notes") annotation is a short form of @RequestMapping(value="/notes", method=RequestMethod.GET)
@@ -633,7 +671,7 @@ Tools:
 	track the data, logs, time - 
 	user will notify/ we need to keep track
 	observing the patterns
-	business analysys
+	business analysis
 	other teams change and releases
 	backtracking
 	Server patching/ restarting
@@ -683,6 +721,10 @@ jenkins for deploying the java project by saving the configurations.
 
 $i excess funds
 --------------------------------------------------------------------------------------------------------------------------
+												
+DB link - > https://bytescout.com/blog/20-important-sql-queries.html#4
+
+
 												ODBC(open db connection)
 
 With ODBC, we can "access data from any application, regardless of any DBMS" by inserting a middle layer "DATABASE DRIVER" between an application and the DBMS. 
@@ -785,14 +827,14 @@ once started, it stays in memory and used for multiple requests.
 CYCLE->
 Clients send the request to the web server -> Web server receives the request -> Web server passes the request to the corresponding servlet -> servlet processes the request and generate the response(output) -> servlet send the response back to the web server -> Web server sends the response back to the client and he can see it on screen.
 --------------------------------------------------------------------------------------------------------------------------
-										       JSP
+										      						 JSP
 
 Java Server Page (JSP) is a server-side technology(extension to the Java servlet)
 separates the logic from the actual design and display of the webpage.
 JSP is translated into Java servlet before running, and processing HTTP requests to generate response like servlets.
 JSPs are fully interoperable with servlets. You can include output from a servlet or forward the output to a servlet, and a servlet can include output from a JSP or forward output to a JSP.
 ==========================================================================================================================
-		 								Request Dispatcher
+		 															Request Dispatcher
 									
 Request Dispatcher is an interface defines an object which can dispatch the request to any resources on the server(it may be html, servlet or jsp).
 Two Types -> forward method(response from another servlet)
