@@ -1,11 +1,11 @@
+						Java
 
-
-						https://beginnersbook.com/java-tutorial-for-beginners-with-examples/
+https://beginnersbook.com/java-tutorial-for-beginners-with-examples/
 
 --------------------------------------------------------------------------------------------------------------------------
 JDK - JRE + other tools and comilers
 
-JRE - JVM + compiled class and libraries
+JRE - JVM + compiled class and libraries // install if just to run 
 
 JVM - Class file loader + Memory(stack, heap, methods, Native Methods stack, PC registers) + Executors
 Loads code
@@ -21,18 +21,16 @@ Public static void main(String[] args){
 public static void main(String []args)  
 public static void main(String args[])  
 public static void main(String... args)  
+public static void main(String[] lilly)  
 static public void main(String[] args)
 
 The core advantage of the static method is that there is no need to create an object to invoke the static method. 
 The main() method is executed by the JVM, so it doesn't require creating an object to invoke the main() method.
 
-//where the program starts, JDK searchs for this main method and executes it. It should have string array and some name as it's designed when C, CPP used cmd line to execute.
-We can also change the array name like - psvm(String[] name){}
-
-We can also skip creating this array like psvm(String . . . anyname){}
-//which might cause internal un known issues
+//where the program starts, JDK searchs for main() and executes n It should have string array
 --------------------------------------------------------------------------------------------------------------------------
     								Creating Objects
+
 You can Create object inside class but, need to call objects method inside main/other methods only but you can use the objects varailble value at class level.
 we can call private/ protected classes inside same class not to other classes
 In the case of a static method, we don’t need to create an object to call the method. We can call the static method by using the class name 
@@ -46,8 +44,10 @@ factory method - Design Pattern
 
 Here is given the 6 usage of java this keyword.
 
+Whenever a child class constructor gets invoked it implicitly invokes the constructor of parent class
 super() is added in each class default constructor automatically by compiler if there is no super() or this()
 
+this() is used for calling the default constructor from parameterized constructor
 this can be used to refer current class instance variable. - this.rollno=rollno; 
 this can be used to invoke current class method (implicitly) - this.m(); 
 this() can be used to invoke current class constructor - this(5);  
@@ -90,7 +90,7 @@ s3= new String("hello"); will be created as new obj in diff string pool in heap 
 --------------------------------------------------------------------------------------------------------------------------
 						Wrapper Class
 									
-A Wrapper class is a class contains a primitive data types[toString(), int ti INTEGER vice versa]. They convert primitive data types into objects. When we create an object to a wrapper class, it contains a field and in this field, we can store a primitive data types. 
+A Wrapper class is a class contains a primitive data types[toString(), int to INTEGER vice versa]. They convert primitive data types into objects. When we create an object to a wrapper class, it contains a field and in this field, we can store a primitive data types. 
 
 conversion of primitive data type into its corresponding wrapper class is known as AUTOBOXING
 conversion of wrapper type into its corresponding primitive type is known as UNBOXING
@@ -117,6 +117,7 @@ Finally is used to place important code, it will be executed whether exception i
 Finalize is used to perform clean up processing just before object is garbage collected.
 -------------------------------------------------------------------------------------------------------------------------
 								UpCasting
+
 https://www.javatpoint.com/downcasting-with-instanceof-operator
 
 If the reference variable of Parent class refers to the object of Child class, it is known as upcasting. 
@@ -129,21 +130,9 @@ Upcasting is "casting a subtype to a supertype", upward to the inheritance tree.
 DOWNCASTING is casting to a subtype, downward to the inheritance tree. Downcasting may fail if the actual object type is not the target object type. by throwing a ClassCastException.
 instanceof - is  way[ if(a instanceof Dog3){    Dog3 d=(Dog3)a;//downcasting  ] to downcast(errors otherwise)
 Dog4 d=(Dog4)a;//downcasting  
---------------------------------------------------------------------------------------------------------------------------
-					OOP(object oriented programming)
-
-programming based on the concept of "objects",instead of just functions and procedures!
-
--> Class/Object
--> Inheritance    
--> Encapsulation   
--> Polymorphism   
--> Abstraction     
--> Assosiation(relation b/n 2classes) - Aggregation(weak association, temporary) and Composition(Strong Association, lifetime) 
--> Aggreagation 1:1(assosiation HAS-A relation where methods survive without eachother) 
--> Composition(restrict form of aggregation, methods depend on each other, PART-OF relation, cannot exist without eachother)
---------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------
 									OBJECT CLASS
+
 Object class is the parent class of all the classes in java by default. In other words, it is the topmost class of java
 It provides some common behaviors to all the objects such as object to compared, cloned, notified etc.
 
@@ -158,6 +147,7 @@ public final void wait()           current thread to wait for the specified mill
 protected void finalize()     	is invoked by the garbage collector before object is being garbage collected
 --------------------------------------------------------------------------------------------------------------------------
 							         CLONE()
+							         
 object cloning is a way to create exact copy of an object. 
 The java.lang.Cloneable interface must be implemented by the class whose object clone we want to create. 
 If we don't implement Cloneable interface, clone() method generates CloneNotSupportedException.
@@ -174,6 +164,27 @@ If you modify one object, the change will be reflected in the other object
 
 In deep copy, it copies all fields, and makes copies of objects to which it refers(memory pointed)	
 --------------------------------------------------------------------------------------------------------------------------
+					OOP(object oriented programming)
+
+programming based on the concept of "objects",instead of just functions and procedures!
+Object oriented programming brings together data and its behaviour(methods) in a single location(object) makes it easier to understand how a program works
+
+-> Object - is a bundle of data,[state] and its behaviour(often known as methods)
+Characteristics of Object - Abstraction, Encapsulation, Message passing
+-> Class - blueprint where we can create as many objects
+-> Constructor -if you do not have any constructor in your class, Java compiler inserts default constructor into your code on your behalf however if you implement any constructor then you no longer receive a default constructor.
+-> Interfaces
+
+4 PILLARS
+-> Inheritance    
+-> Encapsulation- simply means binding object state(fields) and behaviour(methods) together. If you are creating class, you are doing encapsulation
+-> Polymorphism   
+-> Abstraction     
+
+-> Assosiation(relation b/n 2classes) - Aggregation(weak association, temporary) and Composition(Strong Association, lifetime) 
+-> Aggreagation 1:1(assosiation HAS-A relation where methods survive without eachother) 
+-> Composition(restrict form of aggregation, methods depend on each other, PART-OF relation, cannot exist without eachother)
+--------------------------------------------------------------------------------------------------------------------------
 						Encapsulation (getter,setter)
 
 "each object is private, inside a class. Other objects don’t have direct access but, they can access public functions(methods) but cannot change them". [get(),set(), seperate code, methods and communicate via method calling] 
@@ -185,9 +196,36 @@ It helps in controlling the access using access modifiers.
 
 ENCAPSULATION AND ABSTRACTION can help us in develop and maintain a huge codebase.
 --------------------------------------------------------------------------------------------------------------------------
+						  Inheritance (parent child) extends
+
+Objects are often very similar while writing a code. They share common logic, But they’re not entirely the same!! 
+by using inheritance, we can reuse the common logic and seperate unique logic into a separate class.
+The "child class reuses all fields and methods of the parent class (the common part) and can implement its own" (unique part).
+
+To reduce the complexity and simplify the language, multiple inheritance is not supported in java.
+
+Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of the objects involved; otherwise, aggregation is the best choice
+--------------------------------------------------------------------------------------------------------------------------
+							Polymorphism(over ride/load)
+
+Ii is a way to use class exactly like its parent without any confusion with mixing types. But each child class have its own methods.
+Parent class has bunch of methods. "child inherits parent class and implents it's own version of methods".
+
+						Overloading - compile time/static polymorphism
+Overloading occurs when two or more methods in one class have the SAME METHOD NAME but DIFFERENT parameters.
+Type Promotion (int to long). Ambigity error if same parameters
+Method overloading is performed within class.
+
+								Overriding -Runtime/dynamic Polymorphism- On Inheritance
+Parent class reference points to the child class object then the call to the overridden method is determined at runtime, because during method call which method(parent class or child class) is to be executed is determined by the type of object, also called dynamic method dispatch
+static method cannot be overridden
+Runtime polymorphism can't be achieved by data members- int num=10; in parent class used not from child class int num=20;
+If you don't override the parent method, objects refer to child class of same method name 
+Before Java5, it was not possible to override any method by changing the return type. But now, since Java5, it is possible to override method by changing the return type if subclass overrides any method whose return type is Non-Primitive but it changes its return type to subclass type
+--------------------------------------------------------------------------------------------------------------------------
 						Abstraction (only methods no logic)
 A class which is declared with the abstract keyword is known as an abstract class 
-A method which is declared as abstract and does not have implementation is known as an abstract method
+A method that is declared but not defined. Only method signature no body
 Abstract class (abstract and non-abstract methods) but Interface only abstract methods
 
 Applying abstraction means that each "object should only expose a high-level mechanism and hide internal implementations".
@@ -195,7 +233,7 @@ it is an natural extension of encapsulation.
 
 EXAMPLE -> 
 coffee machine makes lot of noises under the hood, you have to just put coffee and press a button without knowing how it works
-
+--------------------------------------------------------------------------------------------------------------------------
 							INTERFACE
 interface in Java is a blueprint of a class, it has only static constants and abstract methods[empty body and fields are public, static and final]. A class that implements an interface must implement all the methods declared in the interface
 Since Java 8, we can have default METHODS [default void msg(){}] and staic method[static int cube(int x){return x*x*x;}]
@@ -218,33 +256,6 @@ An "ABSTRACT CLASS(uses extends) used to create functionality that child classes
 An INTERFACE(uses implements) "has definition or signature of functionality but, cannot implement it". 
 
 A class can extend only one abstract class but,it can take advantage of multiple interfaces.
---------------------------------------------------------------------------------------------------------------------------
-						  Inheritance (parent child) extends
-
-Objects are often very similar while writing a code. They share common logic, But they’re not entirely the same!! 
-by using inheritance, we can reuse the common logic and seperate unique logic into a separate class.
-The "child class reuses all fields and methods of the parent class (the common part) and can implement its own" (unique part).
-
-To reduce the complexity and simplify the language, multiple inheritance is not supported in java.
-
-Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of the objects involved; otherwise, aggregation is the best choice
---------------------------------------------------------------------------------------------------------------------------
-							Polymorphism(over ride/load)
-
-Ii is a way to use class exactly like its parent without any confusion with mixing types. But each child class have its own methods.
-Parent class has bunch of methods. "child inherits parent class and implents it's own version of methods".
-
-						Overloading - compile time polymorphism
-Overloading occurs when two or more methods in one class have the SAME METHOD NAME but DIFFERENT parameters.
-Type Promotion (int to long). Ambigity error if same parameters
-Method overloading is performed within class.
-
-								Overriding -Runtime Polymorphism- On Inheritance
-Parent class reference points to the child class object then the call to the overridden method is determined at runtime, because during method call which method(parent class or child class) is to be executed is determined by the type of object, also called dynamic method dispatch
-static method cannot be overridden
-Runtime polymorphism can't be achieved by data members- int num=10; in parent class used not from child class int num=20;
-If you don't override the parent method, objects refer to child class of same method name 
-Before Java5, it was not possible to override any method by changing the return type. But now, since Java5, it is possible to override method by changing the return type if subclass overrides any method whose return type is Non-Primitive but it changes its return type to subclass type
 --------------------------------------------------------------------------------------------------------------------------
 									String
 string is basically an object that represents sequence of char values. An array of characters works same as Java string
@@ -563,7 +574,6 @@ LAMBDA EXPRESSIONS(Optionals, has body and parameter list)EX- MathOperation mult
 
 
 
-
 NEW (simple)date-time API- using java.time for handling timezones, poor design like 0/1/1900, thread safe .
 
 "Parallel Opearions" (sorting, filtering and mapping)
@@ -668,17 +678,18 @@ registers the default handler mappings, messageConverts, and all other basic thi
 			POI        for excel
 spring-boot-maven      -plugin, to package a web application as an executable JAR
 spring-boot-starter: core starter, including auto-configuration support, logging, and YAML
+spring-boot-starter-web: starter for building web, including RESTful, applications using Spring MVC
+
 spring-boot-starter-aop: starter for aspect-oriented programming with Spring AOP and AspectJ
 spring-boot-starter-data-jpa: starter for using Spring Data JPA with Hibernate
 spring-boot-starter-security: starter for using Spring Security
 spring-boot-starter-test: starter for testing Spring Boot applications
-spring-boot-starter-web: starter for building web, including RESTful, applications using Spring MVC
 ======================================================================================================================
 										    @nnotations
 https://springframework.guru/spring-framework-annotations/
 
 @SpringBootApplication == @ComponentScan + @Configuration + @EnableAutoConfiguration//entry point
-@ComponentScan(used with configuration) is also used to specify base packages using basePackageClasses 
+@ComponentScan(used with configuration) to scan your components added in your project.  also used to specify base packages using basePackageClasses 
 @Configuration has methods to instantiate and configure dependencies.
 @EnableAutoConfiguration is used for auto-configuring beans present in the classpath
 
@@ -745,9 +756,17 @@ To convert a Java object into JSON, the we use: -> GSON & JACKSON API
 4. Execute. 
 performing operations.
 -------------------------------------------------------------------------------------------------------------------
- 																							API
+ 																		API
 
 API is known as the Application Programming Interface and is offered by both the client and the server. In the client world, this is offered by the browser whereas in the server world it’s what is provided by the web service which can either be SOAP or REST.
+-------------------------------------------------------------------------------------------------------------------------
+													Blocking IO
+Input/output (IO) refers to interaction with devices such as a hard drive, network or database. Generally anything that is not happening in the CPU is called IO. When you call an API that requests data from IO, you will not get a response instantly, but with some delay. This delay can be very small for requesting a file on a hard drive, and much longer when requesting data from a network. This is because the data you request from IO devices has to travel longer to the caller. 
+For instance:
+A file stored on a hard drive must be transferred through SATA cables and main board buses to the CPU. The data from a network resource located on a server far away must travel through network cables, routers and eventually the network interface card (NIC) in your computer to the CPU
+
+									Context switching 
+Process of taking threads on and off the CPU. Calling an API that requests data from IO will cause the running thread to “block”, i.e. it is waiting until the requested data has returned to the caller. When a thread is blocked in Linux, it will be put in a Sleep state by the kernel until data has returned to the caller. Threads in sleep state immediately give up its access to the CPU, so to not waste CPU time. After IO is ready, the thread is taken out of the Sleep state and put in Runnable state. Threads in this state are eligible to be executed on the CPU again. The thread scheduler will put the thread on a CPU when one is available
 -------------------------------------------------------------------------------------------------------------------------
  																					Webservice
  application to application communication(request, response)
