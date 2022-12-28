@@ -4,6 +4,41 @@ https://beginnersbook.com/java-tutorial-for-beginners-with-examples/
 
 https://www.journaldev.com/370/java-programming-interview-questions
 
+///////////////
+Requirement 
+Scope in – Tshirt sizing (15 weeks MED, 10 Weeks SM)
+Bain Storm with PO and PM
+Backwards from Customer like reverse Engg
+All Unknowns, risks and new tech will be Spikes
+ 
+Design 
+SLA, Testing, Fail/Pass, Validation, Multi Solutions
+Final Design sign off from Stake Holders
+Assigning UI, Backend and DB different engineers to look after 
+
+Audit Mechanism
+Execution
+
+Scrum of Scrums
+Project Plan Checking
+Milestones
+Demo’s
+Stakeholder Meetings
+Update Milestones
+Feedback
+Bug bash
+UAT
+Deployment Rollout 5% 20% 60%
+RetroSpecct(lesson learnt)
+Metrics
+
+Functional Requirement
+Trade Offs
+Write from Scratch
+Use Existing
+Communicate
+//////////////////////////////
+
 --------------------------------------------------------------------------------------------------------------------------
 JDK - JRE + other tools and compilers
 
