@@ -1,11 +1,48 @@
+						Java
 
+https://beginnersbook.com/java-tutorial-for-beginners-with-examples/
 
-						https://beginnersbook.com/java-tutorial-for-beginners-with-examples/
+https://www.journaldev.com/370/java-programming-interview-questions
+
+///////////////
+Requirement 
+Scope in – Tshirt sizing (15 weeks MED, 10 Weeks SM)
+Bain Storm with PO and PM
+Backwards from Customer like reverse Engg
+All Unknowns, risks and new tech will be Spikes
+ 
+Design 
+SLA, Testing, Fail/Pass, Validation, Multi Solutions
+Final Design sign off from Stake Holders
+Assigning UI, Backend and DB different engineers to look after 
+
+Audit Mechanism
+Execution
+
+Scrum of Scrums
+Project Plan Checking
+Milestones
+Demo’s
+Stakeholder Meetings
+Update Milestones
+Feedback
+Bug bash
+UAT
+Deployment Rollout 5% 20% 60%
+RetroSpecct(lesson learnt)
+Metrics
+
+Functional Requirement
+Trade Offs
+Write from Scratch
+Use Existing
+Communicate
+//////////////////////////////
 
 --------------------------------------------------------------------------------------------------------------------------
-JDK - JRE + other tools and comilers
+JDK - JRE + other tools and compilers
 
-JRE - JVM + compiled class and libraries
+JRE - JVM + compiled class and libraries // install if just to run program
 
 JVM - Class file loader + Memory(stack, heap, methods, Native Methods stack, PC registers) + Executors
 Loads code
@@ -21,21 +58,17 @@ Public static void main(String[] args){
 public static void main(String []args)  
 public static void main(String args[])  
 public static void main(String... args)  
+public static void main(String[] lilly)  
 static public void main(String[] args)
 
 The core advantage of the static method is that there is no need to create an object to invoke the static method. 
 The main() method is executed by the JVM, so it doesn't require creating an object to invoke the main() method.
 
-//where the program starts, JDK searchs for this main method and executes it. It should have string array and some name as it's designed when C, CPP used cmd line to execute.
-We can also change the array name like - psvm(String[] name){}
-
-We can also skip creating this array like psvm(String . . . anyname){}
-//which might cause internal un known issues
+//where the program starts, JDK searchs for main() and executes n It should have string array
 --------------------------------------------------------------------------------------------------------------------------
     								Creating Objects
+Object - is a bundle of data[state] and its behaviour[methods]
 You can Create object inside class but, need to call objects method inside main/other methods only but you can use the objects varailble value at class level.
-we can call private/ protected classes inside same class not to other classes
-In the case of a static method, we don’t need to create an object to call the method. We can call the static method by using the class name 
 
 Create objects
 new           - Keyword obj = new Keyword();
@@ -44,106 +77,8 @@ clone()       - CloneMethod obj2 = (CloneMethod) obj1.clone();
 serialization - FileOutputStream fileOut = new FileOutputStream("/tmp/employee.ser");
 factory method - Design Pattern
 
-Here is given the 6 usage of java this keyword.
+		OBJECT CLASS
 
-super() is added in each class default constructor automatically by compiler if there is no super() or this()
-
-this can be used to refer current class instance variable. - this.rollno=rollno; 
-this can be used to invoke current class method (implicitly) - this.m(); 
-this() can be used to invoke current class constructor - this(5);  
-this can be passed as an argument in the method call -  m(this);  
-this can be passed as argument in the constructor call - B b=new B(this);  
-this can be used to return the current class instance from the method - return this;  
-
-INSTANCE initializer block {//some logic at class level }
-it is invoked after super() and at runs at method level
-
-When type of the object is determined at compiled time is known as STATIC binding. Dog d1=new Dog();  d1.eat();  
-When type of the object is determined at run-time is known as DYNAMIC binding.  Animal a=new Dog();    a.eat();  
-
-instanceof - boolean - if object is an instance of class or subclass or interface, only way to downcast(errors otherwise)
-
- A class cannot be private or protected except nested class
-
- default modifier is accessible only within package
- protected access modifier is accessible within package and outside the package but through inheritance only.
---------------------------------------------------------------------------------------------------------------------------
-						Data Types
-Primitive - due to this data types java is not 100% obj oriented, we use wrapper class
-int, double, char, boolean, long, float, byte, short
-
-Non Primitive 
-Arrays and Strings - allows all primitive, like array of integers, string of boolean etc,
-
-camelCase
-PascalCase
-snake_case
-kebab-case
-
-String pool (possible only because String is immutable in Java)
-- new obj creates here, if same obj pointed to this existing memory else, if new obj, it will create new obj
-s1= "hello";
-s2= "hello";
-will be pointed to same memory in the string pool, s1==s3;
-
-s3= new String("hello"); will be created as new obj in diff string pool in heap memory  
---------------------------------------------------------------------------------------------------------------------------
-						Wrapper Class
-									
-A Wrapper class is a class contains a primitive data types[toString(), int ti INTEGER vice versa]. They convert primitive data types into objects. When we create an object to a wrapper class, it contains a field and in this field, we can store a primitive data types. 
-
-conversion of primitive data type into its corresponding wrapper class is known as AUTOBOXING
-conversion of wrapper type into its corresponding primitive type is known as UNBOXING
-Since Java 5, we don't use explicitly valueOf()/ intValue() for convertion
---------------------------------------------------------------------------------------------------------------------------
-								Static vs Final(Keywords)
-
-The static member can be accessed before the class object is created. It share among all the objects of a class. when program runs, before the main method, static method loads and prints if there is a sysout 
-
-Final keyword is used to declare - 
-a variable which cannot modified, 
-a method which cannot be overridden and 
-a class that can not be inherited
-a paramter inside a method
-but you can still change its state (using setter methods e.g) or using append functions. 
-
-cant change value, can't method overload, can inherit but cant modify
-can initialize blank final variable at only in constructor, likewise you can initialize in static block for static 
-Final modifier is applicable for variable but not for objects.(static final void())
---------------------------------------------------------------------------------------------------------------------------
-
-Final CLASS can't be inherited, final METHOD can't be overridden and final VARIABLE value can't be changed. 
-Finally is used to place important code, it will be executed whether exception is handled or not. 
-Finalize is used to perform clean up processing just before object is garbage collected.
--------------------------------------------------------------------------------------------------------------------------
-								UpCasting
-https://www.javatpoint.com/downcasting-with-instanceof-operator
-
-If the reference variable of Parent class refers to the object of Child class, it is known as upcasting. 
-class A{}  
-class B extends A{
-A a=new B();}//upcasting  
-
-Upcasting is "casting a subtype to a supertype", upward to the inheritance tree. In general, we don't use upcasting unless if we want to write a code which deals only supertype.
-
-DOWNCASTING is casting to a subtype, downward to the inheritance tree. Downcasting may fail if the actual object type is not the target object type. by throwing a ClassCastException.
-instanceof - is  way[ if(a instanceof Dog3){    Dog3 d=(Dog3)a;//downcasting  ] to downcast(errors otherwise)
-Dog4 d=(Dog4)a;//downcasting  
---------------------------------------------------------------------------------------------------------------------------
-					OOP(object oriented programming)
-
-programming based on the concept of "objects",instead of just functions and procedures!
-
--> Class/Object
--> Inheritance    
--> Encapsulation   
--> Polymorphism   
--> Abstraction     
--> Assosiation(relation b/n 2classes) - Aggregation(weak association, temporary) and Composition(Strong Association, lifetime) 
--> Aggreagation 1:1(assosiation HAS-A relation where methods survive without eachother) 
--> Composition(restrict form of aggregation, methods depend on each other, PART-OF relation, cannot exist without eachother)
---------------------------------------------------------------------------------------------------------------------------
-									OBJECT CLASS
 Object class is the parent class of all the classes in java by default. In other words, it is the topmost class of java
 It provides some common behaviors to all the objects such as object to compared, cloned, notified etc.
 
@@ -158,6 +93,7 @@ public final void wait()           current thread to wait for the specified mill
 protected void finalize()     	is invoked by the garbage collector before object is being garbage collected
 --------------------------------------------------------------------------------------------------------------------------
 							         CLONE()
+
 object cloning is a way to create exact copy of an object. 
 The java.lang.Cloneable interface must be implemented by the class whose object clone we want to create. 
 If we don't implement Cloneable interface, clone() method generates CloneNotSupportedException.
@@ -165,7 +101,8 @@ If we don't implement Cloneable interface, clone() method generates CloneNotSupp
     			Student18 s1 = new Student 18(101,"amit"); 
     			Student18 s2 = (Student18)s1.clone();      } 
 
-dis adv - To use the Object.clone() method, we have to changes in code, like implementing Cloneable interface, defining clone() method and handling CloneNotSupportedException, and finally, calling Object.clone() 
+dis adv - To use the Object.clone() method, we have changes in code, like 
+implementing Cloneable interface, defining clone() method and handling CloneNotSupportedException, and finally, calling Object.clone() 
 
 							  shallow and deep copy 
 In shallow copy we create new objects that are exact copies of original object with reference address(i.e., memory address). 
@@ -173,11 +110,140 @@ In overridden clone method, if you are not cloning all the object types (not pri
 If you modify one object, the change will be reflected in the other object
 
 In deep copy, it copies all fields, and makes copies of objects to which it refers(memory pointed)	
+
+--------------------------------------------------------------------------------------------------------------------------
+6 usage of java this keyword.
+
+this() is used for calling the default constructor from parameterized constructor
+this can be used to refer current class instance variable. - this.rollno=rollno; 
+this can be used to invoke current class method (implicitly) - this.m(); 
+this() can be used to invoke current class constructor - this(5);  
+this can be passed as an argument in the method call -  m(this);  
+this can be passed as argument in the constructor call - B b=new B(this);  
+this can be used to return the current class instance from the method - return this;  
+
+INSTANCE initializer block {//some logic at class level }
+it is invoked after super() and at runs at method level
+
+When a type of the object is determined at compiled time is known as STATIC binding. Dog d1=new Dog();  d1.eat();  
+When a type of the object is determined at run-time is known as DYNAMIC binding.  Animal a=new Dog();    a.eat();  
+
+instanceof - boolean - if object is an instance of class or subclass or interface, only way to downcast(errors otherwise)
+
+ A class cannot be private or protected except nested class
+ protected access modifier is accessible within package and outside the package but through inheritance only.
+ default modifier is accessible only within package
+
+--------------------------------------------------------------------------------------------------------------------------
+						Data Types
+Primitive - due to this data types java is not 100% obj oriented, we use wrapper class
+int, double, char, boolean, long, float, byte, short
+
+Non Primitive 
+Arrays and Strings - allows all primitive, like array of integers, string of boolean etc,
+
+camelCase
+PascalCase
+snake_case
+kebab-case
+--------------------------------------------------------------------------------------------------------------------------
+									String
+String is basically an object that represents sequence of char values. An array of characters works same as Java string
+implements Serializable, Comparable and CharSequence interfaces
+
+concat(), equals(), split(), length(), replace(), compareTo(), substring()
+
+Java String is a powerful concept because everything is treated as a String if you submit any form in window based, web based or mobile application.
+
+s.intern() - checks if string is available in Stringpool else creates new and returns
+
+String(immutable), StringBuffer(mutable), StringBuilder(mutable) used to create strings in java
+
+  String s=50+30+"Sachin"+40+40;  -> 80Sachin4040
+
+String.join() method is available in Java version 8 and above->  String s = String.join("hello",s1,s2); -- s1hellos2
+//StringTokenizer class allows you to break a String into tokens/ Strings [deprecated use split()]
+
+StringBuffer class in Java is the same as String class except it is mutable. initial capacity is 16 later increse oldcapacity*2)+2
+doesn't override the equals() method of Object class.
+faster while performing concatenation operation then String and slower than StringBuilder
+StringBuffer is synchronized, thread safe. It means two threads can't call the methods of StringBuffer simultaneously
+
+StringBuilder is the most popular and fastet way to concatenate strings in Java
+StringBuilder is non-synchronized ,not thread safe. It means two threads can call the methods of StringBuilder simultaneously.
+StringBuilder is more efficient/faster than StringBuffer(introduced in Java 1.5)
+
+Java String to Class object - Class.forName()
+
+String pool (possible only because String is immutable in Java). String Constant Pool is an area inside the heap memory. it contains the unique strings, to put strings in the string pool, one needs to call the intern() method - new obj creates here, if same obj pointed to this existing memory else, if new obj, it will create new obj
+
+String s1 = "Java";  									//it will store in the string pool    
+String s2 = "Java";  									//it will store in the string pool    
+String s3 = new String("Java");  						//store in Java heap  
+String s4 = new String("Java").intern();  				//it will store in string pool  
+System.out.println((s1 == s2)+", String are equal."); 		// true  
+System.out.println((s1 == s3)+", String are not equal.");  // false  
+System.out.println((s1 == s4)+", String are equal."); 	  // true, because reference variables are pointing to same instance 
+
+--------------------------------------------------------------------------------------------------------------------------
+						Wrapper Class
+									
+A Wrapper class is a class contains a primitive data types[toString(), int to INTEGER vice versa]. They convert primitive data types into objects. When we create an object to a wrapper class, it contains a field and in this field, we can store a primitive data types. 
+
+conversion of primitive data type into its corresponding wrapper class is known as AUTOBOXING
+conversion of wrapper type into its corresponding primitive type is known as UNBOXING
+Since Java 5, we don't use explicitly valueOf()/ intValue() for convertion
+--------------------------------------------------------------------------------------------------------------------------
+								Static vs Final(Keywords)
+
+The static member can be accessed before the class object is created. It share among all the objects of a class. when program runs, before the main method, static method loads and prints if there is a sysout 
+
+Final keyword is used to declare - 
+a variable which cannot modified, 
+a method which cannot be overridden and 
+a class that can not be inherited
+
+a paramter inside a method
+but you can still change its state (using setter methods e.g) or using append functions. 
+
+not applicable for objects
+can initialize blank final variable at only in constructor, likewise you can initialize in static block for static 
+
+Final CLASS can't be inherited, final METHOD can't be overridden and final VARIABLE value can't be changed. 
+Finally is used to place important code, it will be executed whether exception is handled or not. 
+Finalize is used to perform clean up processing just before object is garbage collected.
+--------------------------------------------------------------------------------------------------------------------------
+					OOP(object oriented programming)
+
+programming based on the concept of "objects",instead of just functions and procedures!
+Object oriented programming brings together data and its behaviour(methods) in a single location(object) makes it easier to understand how a program works
+
+-> Object - is a bundle of data,[state] and its behaviour(often known as methods)
+Characteristics of Object - Abstraction, Encapsulation, Message passing
+
+-> Class - user-defined blueprint from which objects are created.  It represents the set of properties or methods that are common to all objects of one type. In general, class declarations include Class name, Modifiers, Body if available Super Class and Interface. It cannot contain abstract methods
+
+-> Constructor -if you do not have any constructor in your class, Java compiler inserts default constructor into your code on your behalf. Whenever a child class constructor gets invoked it implicitly invokes the constructor of parent class
+super() is added in each class default constructor automatically by compiler if there is no super() or this() 
+
+-> Interfaces -  blueprint of a class. Interface contains static constants and abstract methods. The interface in Java is a mechanism to achieve abstraction. There can be only abstract methods in the Java interface, not the method body. If a class implements an interface and does not provide method bodies for all functions specified in the interface, then class must be declared abstract.
+
+4 PILLARS
+-> Inheritance    
+-> Encapsulation
+-> Polymorphism   
+-> Abstraction     
+
+-> Assosiation(relation b/n 2classes) IS-A realation
+
+-> Aggreagation 1:1(weak assosiation, HAS-A relation where methods survive without eachother, temporary) 
+
+-> Composition(strong association, PART-OF relation, restrict form of aggregation, methods depend on each other, cannot exist without eachother, lifetime)
 --------------------------------------------------------------------------------------------------------------------------
 						Encapsulation (getter,setter)
 
 "each object is private, inside a class. Other objects don’t have direct access but, they can access public functions(methods) but cannot change them". [get(),set(), seperate code, methods and communicate via method calling] 
- Java Bean class is the example of a fully encapsulated class.
+ Java Bean class is the example of a fully encapsulated class// If you are creating class, you are doing encapsulation
 
 It helps in binding methods and variables together. 
 It provides data hiding. 
@@ -185,21 +251,61 @@ It helps in controlling the access using access modifiers.
 
 ENCAPSULATION AND ABSTRACTION can help us in develop and maintain a huge codebase.
 --------------------------------------------------------------------------------------------------------------------------
-						Abstraction (only methods no logic)
-A class which is declared with the abstract keyword is known as an abstract class 
-A method which is declared as abstract and does not have implementation is known as an abstract method
-Abstract class (abstract and non-abstract methods) but Interface only abstract methods
+						  Inheritance (parent child) extends
 
+The "child class reuses all fields and methods of the parent class (the common part) and can implement its own" (unique part).
+Objects are often very similar while writing a code. They share common logic, But they’re not entirely the same!! 
+by using inheritance, we can reuse the common logic and seperate unique logic into a separate class.
+
+To reduce the complexity and simplify the language, multiple inheritance is not supported in java.
+
+Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of the objects involved; otherwise, aggregation is the best choice
+--------------------------------------------------------------------------------------------------------------------------
+							Polymorphism (over ride/load)
+
+Ii is a way to use class exactly like its parent without any confusion with mixing types. But each child class have its own methods.
+Parent class has bunch of methods. "child inherits parent class and implents it's own version of methods".
+
+						Overloading - compile time/static polymorphism
+
+Overloading occurs when two or more methods in one class have the SAME METHOD NAME but DIFFERENT PARAMETERS.
+Method overloading is performed within class.
+Type Promotion (int to long). Ambigity error if same parameters
+
+								Overriding -Runtime/dynamic Polymorphism- On Inheritance
+https://www.geeksforgeeks.org/overriding-in-java/
+
+When a method in a subclass has the same name, same parameters or signature, and same return type(or sub-type) as a method in its super-class, then the method in the subclass is said to override the method in the super-class.
+The version of a method that is executed will be determined by the object that is used to invoke it. If an object of a parent class is used to invoke the method, then the version in the parent class will be executed, but if an object of the subclass is used to invoke the method, then the version in the child class will be executed
+
+Parent class reference points to the child class object then the call to the overridden method is determined at runtime, because during method call which method(parent class or child class) is to be executed is determined by the type of object, also called dynamic method dispatch
+
+Static method cannot be overridden.
+NO Same return type but, after java 5 CO-Variant (obj return type extends another)
+Runtime polymorphism can't be achieved by data members- int num=10; in parent class used not from child class int num=20;
+If you don't override the parent method, objects refer to child class of same method name 
+
+Before Java5, it was not possible to override any method by changing the return type. But now, since Java5, it is possible to override method by changing the return type if subclass overrides any method whose return type is Non-Primitive but it changes its return type to subclass type
+--------------------------------------------------------------------------------------------------------------------------
+						Abstraction (only methods no logic)
 Applying abstraction means that each "object should only expose a high-level mechanism and hide internal implementations".
+
+A class which is declared with the abstract keyword is known as an abstract class 
+A method that is declared but not defined. 
+It has Only method signature no body
+Abstract class (has abstract and non-abstract methods) but Interface only abstract methods
 it is an natural extension of encapsulation.
 
 EXAMPLE -> 
 coffee machine makes lot of noises under the hood, you have to just put coffee and press a button without knowing how it works
-
+--------------------------------------------------------------------------------------------------------------------------
 							INTERFACE
-interface in Java is a blueprint of a class, it has only static constants and abstract methods[empty body and fields are public, static and final]. A class that implements an interface must implement all the methods declared in the interface
-Since Java 8, we can have default METHODS [default void msg(){}] and staic method[static int cube(int x){return x*x*x;}]
-Since Java 9, we can have private methods in an interface
+interface in Java is a blueprint of a class, it has only static constants and abstract methods[empty body and fields are public, static and final]. 
+A class that implements an interface must implement all the methods declared in the interface
+An interface with exactly one abstract method is called Functional Interface
+
+Since Java 8, we can have DEFAULT METHODS [default void msg(){}] and staic method[static int cube(int x){return x*x*x;}]
+Since Java 9, we can have PRIVATE METHODS in an interface
 
 It's used to achieve abstraction and multiple inheritance and loose coupling.
 Interface fields are public, static and final by default[public static final int n=8;], and the methods are public and abstract[public abstract void method(){}] takes care by compiler
@@ -218,129 +324,22 @@ An "ABSTRACT CLASS(uses extends) used to create functionality that child classes
 An INTERFACE(uses implements) "has definition or signature of functionality but, cannot implement it". 
 
 A class can extend only one abstract class but,it can take advantage of multiple interfaces.
---------------------------------------------------------------------------------------------------------------------------
-						  Inheritance (parent child) extends
+-------------------------------------------------------------------------------------------------------------------------
+								UpCasting
 
-Objects are often very similar while writing a code. They share common logic, But they’re not entirely the same!! 
-by using inheritance, we can reuse the common logic and seperate unique logic into a separate class.
-The "child class reuses all fields and methods of the parent class (the common part) and can implement its own" (unique part).
+https://www.javatpoint.com/downcasting-with-instanceof-operator
 
-To reduce the complexity and simplify the language, multiple inheritance is not supported in java.
+If the reference variable of Parent class refers to the object of Child class, it is known as upcasting. 
+class A{}  
+class B extends A{
+A a=new B();}//upcasting  
 
-Inheritance should be used only if the relationship is-a is maintained throughout the lifetime of the objects involved; otherwise, aggregation is the best choice
---------------------------------------------------------------------------------------------------------------------------
-							Polymorphism(over ride/load)
+Upcasting is "casting a subtype to a supertype", upward to the inheritance tree. In general, we don't use upcasting unless if we want to write a code which deals only supertype.
 
-Ii is a way to use class exactly like its parent without any confusion with mixing types. But each child class have its own methods.
-Parent class has bunch of methods. "child inherits parent class and implents it's own version of methods".
+DOWNCASTING is casting to a subtype, downward to the inheritance tree. Downcasting may fail if the actual object type is not the target object type by throwing a ClassCastException.
 
-						Overloading - compile time polymorphism
-Overloading occurs when two or more methods in one class have the SAME METHOD NAME but DIFFERENT parameters.
-Type Promotion (int to long). Ambigity error if same parameters
-Method overloading is performed within class.
-
-								Overriding -Runtime Polymorphism- On Inheritance
-Parent class reference points to the child class object then the call to the overridden method is determined at runtime, because during method call which method(parent class or child class) is to be executed is determined by the type of object, also called dynamic method dispatch
-static method cannot be overridden
-Runtime polymorphism can't be achieved by data members- int num=10; in parent class used not from child class int num=20;
-If you don't override the parent method, objects refer to child class of same method name 
-Before Java5, it was not possible to override any method by changing the return type. But now, since Java5, it is possible to override method by changing the return type if subclass overrides any method whose return type is Non-Primitive but it changes its return type to subclass type
---------------------------------------------------------------------------------------------------------------------------
-									String
-string is basically an object that represents sequence of char values. An array of characters works same as Java string
-concat(), equals(), split(), length(), replace(), compareTo(), substring()
-implements Serializable, Comparable and CharSequence interfaces
-Java String is a powerful concept because everything is treated as a String if you submit any form in window based, web based or mobile application.
-
-s.intern() - checks if string is available in Stringpool else creates new and returns
-
-CharSequence interface is used to represent the sequence of characters. String(immutable), StringBuffer, StringBuilder(mutable) implement and these classes use to create strings in java
-
-  String s=50+30+"Sachin"+40+40;  -> 80Sachin4040
-
-String.join() method is available in Java version 8 and above->  String s = String.join("hello",s1,s2); -- s1hellos2
-//StringTokenizer class allows you to break a String into tokens/ Strings [deprecated use split()]
-
-StringBuffer class in Java is the same as String class except it is mutable. initial capacity is 16 to increse oldcapacity*2)+2
-doesn't override the equals() method of Object class.
-faster while performing concatenation operation then String and slower than StringBuilder
-StringBuffer is synchronized, thread safe. It means two threads can't call the methods of StringBuffer simultaneously
-
-StringBuilder is the most popular and fastet way to concatenate strings in Java
-StringBuilder is non-synchronized ,not thread safe. It means two threads can call the methods of StringBuilder simultaneously.
-StringBuilder is more efficient/faster than StringBuffer(introduced in Java 1.5)
-
-Map <int, String> hm = new Hashmap<int, String>();
-hm.getvalue(key);
-
-Java String to Class object - Class.forName()
---------------------------------------------------------------------------------------------------------------------------
-Data Structures
-
-			ARRAY 
-array is an object of a dynamically generated class. Java array inherits the Object class, and implements the Serializable as well as Cloneable interfaces. We can store primitive values or objects
-arr.length;
-+							-negatives
-Storing 						size is fixed 
-Random Access
-
-If we clone single-dimensional array, it creates the deep copy of the Java array means, it will copy the actual value. 
-if we clone multidimensional array, it creates the shallow copy of the Java array which means it copies the references.
-Clone() is the fastest way to copy array.
-
---------------------------------------------------------------------------------------------------------------------------
-                                           Collections
-
-List store the ordered collection of objects. It can have DUPLICATE values. List interface is implemented by the classes ArrayList, LinkedList, Vector, and Stack.
-
-ArrayList (best for storing, retrieving) uses a dynamic array to store the duplicate element of different data types. The ArrayList class maintains the insertion order and is non-synchronized. The elements stored in the ArrayList class can be randomly accessed.
-
-EnsureCapacity() in ArrayList to resize the List with performance.
-Remove integer value from arrayList, use ->   remove(Integer.valueOf(77)); removes 77 value not index!
-ensureCapacity()	setLength()	trimToSize()
-Capacity	Buffer capacity is set irrespective of length	Length (number of characters) is set. Buffer may be more than length	Extra buffer is deleted than required to store the characters
-Iterator.hasnext();   iterator.next();//to get the values in the List
-
-
-LinkedList(best for modification insert, delete) uses a double linked list internally to store the elements. It can store the duplicate elements. It maintains the insertion order and is not synchronized. In LinkedList, the manipulation is fast because no shifting is required.
-
-Hashmap(best for seraching due to hashing) stores the data in Key(hashing and buckets), Value pairs. To access a value it must know its key. Hashing is a technique of converting a large String to small String that represents the same String. A shorter value helps in indexing and faster searches. 
-In a HashMap the key is an object, that contains hashCode() and "equals(Object)" methods (to check already inserted or not)
-
-1 null key and null values
-
-					COLLLISION (only same indexes) different from replacing same value
-
-distribute the values
-Store in next bucket
-Create a linked list at the index.
-
-if you create (E,1) and update to (E,NULL) the hashmap wont allow GC to remove keys even if it has no reference 
-
-Weakhashmap -works different and allow GC to collect unused objects
-
-LinkedHashSet
-
-if sync hashmap is existing why java 5 introduced concurrent hash map?
-not thread safe, performance, due to lock every bucket while read/write 
-read any threads but write lock on spe 
-
-
-Set unordered set of elements which DOESNOT allow us to store the duplicate items. We can store at most one null value in Set. Set is implemented by HashSet, LinkedHashSet, and TreeSet.
-
-Hashset uses a hash table for storage. Hashing is used to store the elements in the HashSet. It contains UNIQUE items.HashSet  uses HashMap internally.
-
-Hashtable is synchronized. It is thread-safe and can be shared with many threads. doesn’t allow any null key or value.
-
-Queue uses FIFO(First In First Out)
-
-Stack used to store & delete LIFO(Last In First Out). push n pop methods.
-
-flatMap() produces a stream of new values
-map() it produces a single value
-
-Vector uses a dynamic array to store the data elements. It is similar to ArrayList. However, it is synchronized and contains many methods that are not the part of Collection framework.
-
+instanceof - is  way[ if(a instanceof Dog3){    Dog3 d=(Dog3)a;//downcasting  ] to downcast(errors otherwise)
+Dog4 d=(Dog4)a;//downcasting  									
 -------------------------------------------------------------------------------------------------------------------
 						Comparator vs Comparable
 
@@ -363,8 +362,8 @@ It's a process of converting the data or the objects into a byte-stream, and "un
 For each try block, there can be only 1 finally block.
 finally block will not be executed if program exits by calling System.exit(); or by causing a fatal error that abort process
 If an exception is not handled in the catch statement, before terminating the program, JVM executes the finally block
-throw  used to throw an exception
-throws used to declare exceptions
+THROW  used to throw an exception explicitly
+THROWS used to declare exceptions
 
  			  					Exceptions
 
@@ -378,22 +377,6 @@ Throw keyword is used to throw an exception explicitly  -> throw new ArithmeticE
 ConcurrentModificationException - modify an element, before finishing the iteration
 
 If the size is int or long and the results overflow the range of value, the methods addExact(), subtractExact(), multiplyExact(), and toIntExact() throw an ArithmeticException
---------------------------------------------------------------------------------------------------------------------------
-								REGEX
-Regular Expression is an API to define a pattern for searching or manipulating strings
-
-//1st way  
-Pattern p = Pattern.compile(".s");// . represents(dot) single character  
-Matcher m = p.matcher("as");  
-boolean b = m.matches();  
-  
-//2nd way  
-boolean bool = Pattern.compile(".s").matcher("as").matches();  
-  
-//3rd way  
-boolean br = Pattern.matches(".s", "as");  
-
-
 --------------------------------------------------------------------------------------------------------------------------
 								THREAD
 A thread in Java at any point of time exists in any one of the following states. A thread lies only in one of the shown states at any instant:
@@ -481,6 +464,111 @@ We should prefer Classes should be immutable unless there's a very good reason t
 
 All the datatypes are mutable except String(objects are cached in the String pool and accessed by multiple clients, for security and synchronization. stringbuilder to mute, safe for multithreading)
 --------------------------------------------------------------------------------------------------------------------------
+Data Structures
+
+			ARRAY 
+array is an object of a dynamically generated class. Java array inherits the Object class, and implements the Serializable as well as Cloneable interfaces. We can store primitive values or objects
+arr.length;
+
+         +							             -negatives
+Storing(index based) 						size is fixed 
+Random Access
+
+If we clone single-dimensional array, it creates the deep copy of the Java array, means it will copy the actual value. 
+if we clone multidimensional array, it creates the shallow copy of the Java array which means it copies the references.
+Clone() is the fastest way to copy array.
+
+--------------------------------------------------------------------------------------------------------------------------
+                                           Collections
+
+-> List store the ordered collection of objects. It can have DUPLICATE values. List interface is implemented by the classes ArrayList, LinkedList, Vector, and Stack.
+----- ------ ----     ---------     -    - - - - - - - - - - - - - -- - 
+-> ARRAY LIST (best for storing, retrieving) uses a dynamic array to store the duplicate element of different data types. The ArrayList class maintains the insertion order and is non-synchronized. The elements stored in the ArrayList class can be randomly accessed.
+
+ArrayList<Integer> numbers = new ArrayList<Integer>();
+      numbers.add(1);
+      numbers.add(2,2);
+      numbers.size();
+   for(Integer i: numbers){}
+   Collections.sort(numbers);	
+
+Remove integer value from arrayList, use ->   remove(Integer.valueOf(77)); removes 77 value not index!
+
+ensureCapacity()	setLength()	trimToSize()  // to resize the List with performance
+
+Buffer capacity is set irrespective of length (number of characters). Buffer may be more than length,Extra buffer is deleted than required to store the characters
+
+Iterator.hasnext();   iterator.next();//to get the values in the List
+
+----- ------ ----     ---------     -    - - - - - - - - - - - - - -- - 
+-> LINKED LIST (best for modification, insert, delete) uses a double linked list internally to store the elements. It can store the duplicate elements. It maintains the insertion order and is not synchronized. 
+In LinkedList, the manipulation is fast because no shifting is required only the pointer of the previous and the next node requires change.
+
+Memory allocation is done at the run time by the compiler
+
+LinkedList<String> list=new LinkedList<String>();
+
+     list.add("Steve");
+
+     Iterator<String> iterator=list.iterator();
+     while(iterator.hasNext()){}
+
+----- ------ ----     ---------     -    - - - - - - - - - - - - - -- - 
+Hashmap(best for seraching due to hashing) stores the data in Key, Value pairs(hashing and buckets). To access a value you must know its key. 
+Hashing is a technique of converting a large String to small String that represents the same String. A shorter value helps in indexing and faster searches. 
+In a HashMap the key is an object, that contains hashCode() and "equals(Object)" methods (to check already inserted or not)
+
+1 null key and any null values
+
+Map <int, String> hm = new Hashmap<int, String>();
+	hm.put(1,"seven");
+	for (Map.Entry me : hmap.entrySet()) {}    
+
+	Iterator iterator = hmap.entrySet().iterator();  //you can replace with Set set = hmap.entrySet(); Iterator ite = set.iterator();
+		While(iterator.hasnext()){}
+		
+	hm.getvalue(key);
+
+	ListIterator<String> litr = hm.listIterator();
+	while(litr.hasNext()){
+	while(litr.hasPrevious()){    //iterate backward
+
+
+					COLLLISION (only same indexes) different from replacing same value
+distribute the values
+Store in next bucket
+Create a linked list at the index.
+
+if you create (E,1) and update to (E,NULL) the hashmap wont allow GC to remove keys even if it has no reference 
+
+Weakhashmap -works different and allow GC to collect unused objects
+
+LinkedHashSet
+
+if sync hashmap is existing why java 5 introduced concurrent hash map?
+not thread safe, performance, due to lock every bucket while read/write 
+read any threads but write lock on spe 
+
+
+WRITE/ DRAW NOTES FOR COLLECTIONS AND UPLOAD
+----- ------ ----     ---------     -    - - - - - - - - - - - - - -- - 
+
+Set unordered set of elements which DOESNOT allow us to store the duplicate items. We can store at most one null value in Set. 
+Set is implemented by HashSet, LinkedHashSet, and TreeSet.
+
+Hashset uses a hash table for storage. Hashing is used to store the elements in the HashSet. It contains UNIQUE items.HashSet  uses HashMap internally.
+
+Hashtable is synchronized. It is thread-safe and can be shared with many threads. doesn’t allow any null key or value.
+----- ------ ----     ---------     -    - - - - - - - - - - - - - -- - 
+Queue uses FIFO(First In First Out)
+
+Stack used to store & delete LIFO(Last In First Out). push n pop methods.
+
+flatMap() produces a stream of new values
+map() it produces a single value
+----- ------ ----     ---------     -    - - - - - - - - - - - - - -- - 
+Vector uses a dynamic array to store the data elements. It is similar to ArrayList. However, it is synchronized and contains many methods that are not the part of Collection framework.
+--------------------------------------------------------------------------------------------------------------------------
 JAVA - SOLID RULES
 DB  - ACID Properties													
 								ACID Rules
@@ -516,6 +604,12 @@ Mark and sweep technique -
 cycle 1 -marks used obj(increaase the age) and unused obj
 cycle 2 -sweeps the unused obj
 
+Heap - Young generation (hidden space- all the obj store here, if it's full minor GC called and marked unused obj and 
+used obj moved to survivor 0
+(hidden space, survivor 0 and survivor 1(from survivor0 and hidden space if used))
+
+old gen(moved from young if used often), 
+pom gen(moved here if old is full and major GC is called if pom gen is full) 
 
 We cannot force garbage collection. It will only trigger if JVM thinks it needs a garbage collection based on Java heap size. other threads in the application have to be stopped to allow the garbage collector thread to effectively do its work. 
 parent object is set to null
@@ -530,20 +624,14 @@ If finalize() method is already called for one object, Garbage Collector will de
 --------------------------------------------------------------------------------------------------------------------------
 										STACK  VS HEAP MEMORY
 
-Heap - Young generation (hidden space- all the obj store here, if it's full minor GC called and marked unused obj and 
-used obj moved to survivor 0
-(hidden space, survivor 0 and survivor 1(from survivor0 and hidden space if used))
-
-old gen(moved from young if used often), 
-pom gen(moved here if old is full and major GC is called if pom gen is full) 
-
-stack memory is used to store local variables and function, Variables stored in stacks are only visible to the owner.
-heap memory is used to store objects in Java, visible to all threads.
+stack memory is used to store local variables and function, 
+Variables stored in stacks are only visible to the owner.
+															heap memory is used to store objects in Java, visible to all threads.
 
 Stack memory is used only by one thread of execution.	    Heap memory is used by all the parts of the application.
 Stack memory can’t be accessed by other threads.	        Objects stored in the heap are globally accessible.
-Fllows LIFO manner to free memory.	                        Memory management is based on the generation associated with each    															object.
-Exists until the end of execution of the thread.	        Heap memory lives from the start till the end of application 																	execution.
+Fllows LIFO manner to free memory.	                        Memory management is based on the generation associated with each object.
+Exists until the end of execution of the thread.	        Heap memory lives from the start till the end of application execution.
 Stack memory only contains local primitive and reference 
 variables to objects in heap space.	                         Whenever an object is created, it’s always stored in the Heap space
 --------------------------------------------------------------------------------------------------------------------------
@@ -553,14 +641,14 @@ Streams(used for Operations on Collections)
 intermediate(can modify after this like filter, map) or terminal methods(cant manipulate after like collect)
 
 "FUNCTIONAL INTERFACES"  earlier there are no restrictions for abstract methods in interface, from java 8, they have restricted to have one abstract class and mulitple default static/default methods. used for reference to lamba expression
-(EX-> eval(list, n-> n > 3); //printing no greater than 3). A functional interface is an interface that contains only one abstract method(one functionality to exhibit). EX -  Runnable, ActionListener, Comparable
+(EX-> eval(list, n-> n > 3); //printing no greater than 3). A functional interface is an interface that contains only one abstract method(one functionality to exhibit). 
+EX -  Runnable, ActionListener, Comparable
 
 LAMBDA EXPRESSIONS(Optionals, has body and parameter list)EX- MathOperation multiplication = (int a, int b) -> { return a * b; } )
 ->used to represent the instance of a functional interface
 
 "METHOD REFERENCES" which help to point to methods by their names. 
  symbol - two colons :: (ex -> names.forEach(System.out::println)for printing all names in different lines)
-
 
 
 
@@ -593,6 +681,7 @@ In Bean-managed transactions (BMT), the "bean-provider" take care of the transac
 											Spring Bean Scope
 
 The core of spring framework is it’s bean factory and mechanism to create and manage beans inside the Spring container.
+
 @Bean
 configuring type of bean->
 @Scope(value="singleton/ prototype/ session etc") 
@@ -600,7 +689,7 @@ XML file <bean id="demoBean" class="com.howtodoinjava.application.web.DemoBean" 
 
 The beans in spring container can be created in five scopes i.e. 
 
-1.SINGLETON (default) – Creates only one bean instance for the spring container. While using we have to check for shared instances  to avoid data inconsistency issues. [ default scope of bean ]
+1.SINGLETON (default) – Creates only one bean instance for the spring container. While using we have to check for shared instances to avoid data inconsistency issues. 
 
 2.PROTOTYPE –  Created by request from spring container.
 
@@ -609,26 +698,23 @@ The beans in spring container can be created in five scopes i.e.
 4.SESSION – A new bean will be created for each HTTP session by the container.
 
 5.GLOBAL SESSION SCOPE– Creates global session beans for Portlet applications.
-
-We can define bean scope in -> 
 -------------------------------------------------------------------------------------------------------------------------
 								Springboot:
 
 extension of the Spring framework which removes the boilerplate configurations to set up Spring application.
+
 starter dependencies
 default server
-Automatic config whenever needed(by looking at the dependencies, properties, and beans). If we want to do it manually it goes away
+Automatic config whenever needed(by looking at the dependencies, properties, and beans). 
 
 basic dependencies to start spring is "springbootstarterweb"
 All other dependencies are added automatically during build time
 
+Spring Boot web starters use Tomcat as the default embedded servlet container.
 Spring Boot uses Hibernate as the default JPA implementation.
 spring.jpa.hibernate.ddl-auto is used for database initialization.
 
 @SpringBootApplication == @ComponentScan + @Configuration + @EnableAutoConfiguration//entry point
-
-how can we use other server in springboot by avoiding default tomcat server?
-Spring Boot web starters use Tomcat as the default embedded servlet container.
 
 				                        Dependency injection(DI)
 Dependency Injection is the process where Spring framework search for the beans and identifies the dependencies, and creates bean instances by autowiring. 
@@ -645,7 +731,8 @@ In Spring(Loose Coupling) , we use @Autowired annotation over the dependency cla
 -> Find Beans  -> Identify their dependencies and wire the dependencies  -> Manage Lifecycle of the Bean (create,process, destruction)
 
 										Application Context
-Is an advanced version of IOC Container provides all the functionalities of Bean Factory like AOP, Internationalization capabilities, web application context (request, session, etc).
+Is an advanced version of IOC Container provides all the functionalities of Bean Factory like AOP, Internationalization capabilities, web application context 
+(request, session, etc).
 Created by using -> ClassPathXmlApplicationContext(XML Files) -> @Configuration
 
 The Spring documentation recommends using constructor-based injection for mandatory dependencies, and setter-based injection for optional ones.
@@ -658,6 +745,9 @@ Spring Actuators - custom endpoints to get staus of app
 
 
 							WORKING
+
+https://www.tutorialspoint.com/spring_boot/spring_boot_building_restful_web_services.html
+
 from the run method, the main application context started
 searches for the classes annotated with @Configuration
 stores those beans in JVM- IOC container
@@ -668,17 +758,18 @@ registers the default handler mappings, messageConverts, and all other basic thi
 			POI        for excel
 spring-boot-maven      -plugin, to package a web application as an executable JAR
 spring-boot-starter: core starter, including auto-configuration support, logging, and YAML
+spring-boot-starter-web: starter for building web, including RESTful, applications using Spring MVC
+
 spring-boot-starter-aop: starter for aspect-oriented programming with Spring AOP and AspectJ
 spring-boot-starter-data-jpa: starter for using Spring Data JPA with Hibernate
 spring-boot-starter-security: starter for using Spring Security
 spring-boot-starter-test: starter for testing Spring Boot applications
-spring-boot-starter-web: starter for building web, including RESTful, applications using Spring MVC
 ======================================================================================================================
 										    @nnotations
 https://springframework.guru/spring-framework-annotations/
 
 @SpringBootApplication == @ComponentScan + @Configuration + @EnableAutoConfiguration//entry point
-@ComponentScan(used with configuration) is also used to specify base packages using basePackageClasses 
+@ComponentScan(used with configuration) to scan your components added in your project, also used to specify base packages using basePackageClasses 
 @Configuration has methods to instantiate and configure dependencies.
 @EnableAutoConfiguration is used for auto-configuring beans present in the classpath
 
@@ -722,19 +813,36 @@ first convert from json,xml -> string,
 convert line break -> create object-> convert into xml, json 
 Using the JsonConvert class
 // XmlDocument doc = JsonConvert.DeserializeXmlNode(json);
+-------------------------------------------------------------------------------------------------------------------------
+								REGEX
+Regular Expression is an API to define a pattern for searching or manipulating strings
 
+//1st way  
+Pattern p = Pattern.compile(".s");// . represents(dot) single character  
+Matcher m = p.matcher("as");  
+boolean b = m.matches();  
+  
+//2nd way  
+boolean bool = Pattern.compile(".s").matcher("as").matches();  
+  
+//3rd way  
+boolean br = Pattern.matches(".s", "as");  
 --------------------------------------------------------------------------------------------------------------------------
 								Jackson API
 Jackson is a very popular and efficient java based library "to serialize or map java objects to JSON and vice versa".
 achived in 3 ways-
 -> Data Binding* (using annotations) [object - LinkedHashMap<String,Object> , array - ArrayList<Object> ,string - String]
 -> Tree Model (tree representation of JSON using objectmapper)
--> Streaming API(JsonParser reads the data and JsonGenerator writes the data)		
+-> Streaming API(JsonParser reads the data and JsonGenerator writes the data)	
+
+Java API for RESTful Web Services (JAX-RS) is the Java API for creating REST web services. 
+JAX-RS uses annotations to simplify the development and deployment of web services.	
 
 									   ObjectMapper
-ObjectMapper is the main class of Jackson library. It provides functionality for reading and writing JSON from POJOs or JSON Tree Model (JsonNode). It supports polymorphism and Object identity. It act as a factory for more advanced ObjectReader and ObjectWriter classes.
+ObjectMapper is the main class of Jackson library. It provides functionality for reading and writing JSON from POJOs or JSON Tree Model (JsonNode). 
+It supports polymorphism and Object identity. It act as a factory for more advanced ObjectReader and ObjectWriter classes.
 --------------------------------------------------------------------------------------------------------------------------
-																						JSON
+										JSON
 JSON (JavaScript Object Notation) is a text-based format shows structured data based on JavaScript object. 
 It's used for transmitting data in web applications ie., between a server and web application.
 
@@ -745,11 +853,19 @@ To convert a Java object into JSON, the we use: -> GSON & JACKSON API
 4. Execute. 
 performing operations.
 -------------------------------------------------------------------------------------------------------------------
- 																							API
+ 								API
 
 API is known as the Application Programming Interface and is offered by both the client and the server. In the client world, this is offered by the browser whereas in the server world it’s what is provided by the web service which can either be SOAP or REST.
 -------------------------------------------------------------------------------------------------------------------------
- 																					Webservice
+													Blocking IO
+Input/output (IO) refers to interaction with devices such as a hard drive, network or database. Generally anything that is not happening in the CPU is called IO. When you call an API that requests data from IO, you will not get a response instantly, but with some delay. This delay can be very small for requesting a file on a hard drive, and much longer when requesting data from a network. This is because the data you request from IO devices has to travel longer to the caller. 
+For instance:
+A file stored on a hard drive must be transferred through SATA cables and main board buses to the CPU. The data from a network resource located on a server far away must travel through network cables, routers and eventually the network interface card (NIC) in your computer to the CPU
+
+									Context switching 
+Process of taking threads on and off the CPU. Calling an API that requests data from IO will cause the running thread to “block”, i.e. it is waiting until the requested data has returned to the caller. When a thread is blocked in Linux, it will be put in a Sleep state by the kernel until data has returned to the caller. Threads in sleep state immediately give up its access to the CPU, so to not waste CPU time. After IO is ready, the thread is taken out of the Sleep state and put in Runnable state. Threads in this state are eligible to be executed on the CPU again. The thread scheduler will put the thread on a CPU when one is available
+-------------------------------------------------------------------------------------------------------------------------
+ 									Webservice
  application to application communication(request, response)
  platform independent
  communication over the network
@@ -807,7 +923,7 @@ gmail oauth flow with java
 
 https://anil-pace.medium.com/json-web-tokens-vs-oauth-2-0-85dd0b32057d
 
-																	OAUTH
+							OAUTH
 												
 Access granting protocol. Data access without sharing username and passwords for every application.
 Federated Authentication(App 2 App)
@@ -818,7 +934,7 @@ authentication, authorization Java apps
 --------------------------------------------------------------------------------------------------------------------------
 								what is restless and resfull services?
 
-I had to smile when you mentioned “restless” but I understand what you mean. Not many people talk about services being restless. They generally call them SOAP or just services. Restless is basically any service that doesn’t follow the REST protocol
+Restless is basically any service that doesn’t follow the REST protocol
 The main difference ins basically that REST is meant to be used with the HTTP protocols and thus basically uses web servers for the server side. Other services can use HTTP but can also use other transport layers instead. (SOAP can use SMTP, for example, which is an email protocol!)
 
 										Java Message Service
@@ -826,12 +942,12 @@ JMS stands for Java Message Service. JMS is a standard that defines how you can 
 JMS implemented by messaging service providers like IBM MQ(message queueing) to allow JMS client applications to access the provider’s messaging service
 MQ is communication b/n service request and response
 -------------------------------------------------------------------------------------------------------------------------
-																						CORS
+											CORS
 Cross-origin resource sharing (CORS) is a W3C specification implemented by most browsers that allows you to specify in a flexible way what kind of cross domain requests are authorized, instead of using less powerful hacks like IFrame or JSONP.
 open access across domain-boundaries.
 instruct browser to allow only certain HTTP methods (GET/PUT/POST/DELETE etc) on domain URLs.
 -------------------------------------------------------------------------------------------------------------------------
-																			Persistant Class
+								Persistant Class
 
 Java classes whose objects or instances are stored in database tables are called persistent classes in Hibernate. 
 Hibernate works best if these classes follow Plain Old Java Object (POJO) programming model.
@@ -849,7 +965,9 @@ All classes that do not extend or implement some specialized classes and interfa
 
 The POJO name is used to emphasize that a given object is an ordinary Java Object, not a special object, and in particular not an Enterprise JavaBean.
 --------------------------------------------------------------------------------------------------------------------------
-																			Hibernate
+										Hibernate
+
+https://www.codejava.net/frameworks/hibernate/hibernate-query-language-hql-example
 
 Spring Boot uses Hibernate(artist) as the default JPA(art) implementation.
 spring.jpa.hibernate.ddl-auto is used for database initialization.
@@ -889,6 +1007,7 @@ DATABASE DRIVER translate the application's data queries into commands that DBMS
 
 JDBC "allows Java programs to interact with any SQL based database" and execute SQL statements. It has a single database application that run on different platforms which interacts with different DBMSs.
 JDBC is similar to ODBC, but is designed specifically for Java programs, whereas ODBC is language-independent.
+					
 					difference between SQL (such as SQL Server) and NoSQL (such as Mongo DB)?
 	
 MySQL(RDBMS) database can replicate across multiple nodes. We use MySQL for multiple row transactions and applications which run on legacy systems
@@ -897,7 +1016,8 @@ The main difference is the way of storing the data(table-based VS key-value pair
 We can scale in load on single server(MySQL) on other hand we can add servers(NoSQL).
 --------------------------------------------------------------------------------------------------------------------------
 								One to many relation
-Consider the following example. Book table (pk_book_id, title, ISBN) is associated with Author (pk_author_id, author_name, phone_no, fk_book_id). One book can have many authors. This relationship can be implemented by using (PK_Author_Id as Primary Key) and (Fk_Author_Id as Foreign Key).
+Book table (pk_book_id, title, ISBN) is associated with Author (pk_author_id, author_name, phone_no, fk_book_id). 
+One book can have many authors. This relationship can be implemented by using (PK_Author_Id as Primary Key) and (Fk_Author_Id as Foreign Key).
 --------------------------------------------------------------------------------------------------------------------------
 													Save vs Persist
 save() generates a new identifier and INSERT record into database while saveOrUpdate can either INSERT or UPDATE based upon existence of record.
@@ -928,7 +1048,8 @@ It stores business entities(POJO) as entities and manage the entities with relat
 JPA INTERFACES -> Entity, EntityManaager, EntityManagerFactory, Persistance, Query
 
 (Eager fetch)Fetching the whole record using Primary Key
-(lazy fetch)fetches the record for the first time and stores it in cache memory for furthur use. Performance wise, lazy fetch is preferable.
+(lazy fetch)fetches the record for the first time and stores it in cache memory for furthur use. 
+Performance wise, lazy fetch is preferable.
 -------------------------------------------------------------------------------------------------------------------------
 													SWAGGER
 
@@ -940,20 +1061,22 @@ springfox
 Monolithic VS SOA VS MicroService
 
 										Microservices
+
 Microservices can adapt easily to other frameworks or technologies.
 Failure of a single process does not affect the entire system.
 Provides support to big enterprises as well as small teams.
 Can be deployed independently and in relatively less time.
 
-Disadvantage of DEVOPS - everything is individual
+Disadvantage is DEVOPS - everything is individual
 
 Note: App dynamics is tool provided on service instance and monitors how many end points are hit per sec.
 How many transactions per sec. If transactions are going beyond certain threshold value we are going to advice go for another node.
 =======================================================================================================================
-										Design pattern(aka dp) 
+										Design pattern 
 
 Design pattern(aka dp) used to get a solution for the problem while developing a software(as a software developer view). 
-It shows the relationships and interactions between classes or objects also speed up the development. It’s not mandatory to use dp always in your project they are meant only for solving problems. 
+It shows the relationships and interactions between classes or objects also speed up the development. 
+It’s not mandatory to use dp always in your project they are meant only for solving problems. 
 Whenever there is a need, you have to implement the suitable pattern to avoid such problems in future. 
 To find out which pattern to use, you should have a clear picture about it and it’s purpose.
 
@@ -971,14 +1094,18 @@ State -> Changing the state from one place to another (Overriding)
 Builder/Composite -> Creating an object by assosiating with multiple objects
 Observer -> If the object's state changes, it impacts/notifies the other places where it used
 --------------------------------------------------------------------------------------------------------------------------
-																		Message Queue
-MQ queues can be thought of as conduits to transport messages between Queue Managers. There are four different types of MQ queues and one related object. The four different types of queues are: Local Queue (QL), Remote Queue (QR), Transmission Queue (TQ), and Dead Letter Queue, and the related object is a Channel (CH)
+											Message Queue
+MQ queues can be thought of as conduits to transport messages between Queue Managers. There are four different types of queues are: 
+Local Queue (QL), 
+Remote Queue (QR), 
+Transmission Queue (TQ), and 
+Dead Letter Queue, and the related object is a Channel (CH)
 --------------------------------------------------------------------------------------------------------------------------
-																					Splunk
+																Splunk
 Use Splunk for Log Analysis
 monitoring, searching, analyzing, visualizing and acting on voluminous streams of real-time machine data
 --------------------------------------------------------------------------------------------------------------------------
-																			Dockers
+														Dockers
 
 Docker is a basic tool, like (git VCS) for app's operating system. It uses btrfs (a copy-on-write filesystem) to keep track of filesystem. has a central repository of disk images (upload and download images) that allow you to easily run different operating systems.
 The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
@@ -992,6 +1119,7 @@ Dockers have docker containers, images, registries, docker client.
 image is a file used to execute code in a Docker container. An image is built from the instructions
 --------------------------------------------------------------------------------------------------------------------------
 														  docker vs  Virtual Machine
+
 Docker is container based technology, Virtual Machine on the other hand, is not!
 In Docker, the containers share the host OS kernel, VM environment shares hardware resource from the host.
 With a container environment, multiple workloads can run with single OS.In Virtual Machine environment, each workload needs a complete OS.
@@ -1039,14 +1167,14 @@ once started, it stays in memory and used for multiple requests.
 CYCLE->
 Clients send the request to the web server -> Web server receives the request -> Web server passes the request to the corresponding servlet -> servlet processes the request and generate the response(output) -> servlet send the response back to the web server -> Web server sends the response back to the client and he can see it on screen.
 --------------------------------------------------------------------------------------------------------------------------
-										      						 JSP
+										 JSP
 
 Java Server Page (JSP) is a server-side technology(extension to the Java servlet)
 separates the logic from the actual design and display of the webpage.
 JSP is translated into Java servlet before running, and processing HTTP requests to generate response like servlets.
 JSPs are fully interoperable with servlets. You can include output from a servlet or forward the output to a servlet, and a servlet can include output from a JSP or forward output to a JSP.
 ==========================================================================================================================
-		 															Request Dispatcher
+		 							Request Dispatcher
 									
 Request Dispatcher is an interface defines an object which can dispatch the request to any resources on the server(it may be html, servlet or jsp).
 Two Types -> forward method(response from another servlet)
@@ -1071,7 +1199,6 @@ Staging environments are made to test codes, builds, and updates to ensure quali
 Smoke tests check for service functionalities
 User acceptance testing (UAT) are performed from the end user point of view.
 
-
 =========================================================================================================================
 									PROD Support
 
@@ -1086,7 +1213,7 @@ Tools:
 	user will notify/ we need to keep track
 	observing the patterns
 	business analysis
-	other teams change and releases
+	other teams changes and releases
 	backtracking
 	Server patching/ restarting
 	TLS timeouts
